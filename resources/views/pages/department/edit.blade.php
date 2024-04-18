@@ -27,7 +27,7 @@
                 <p class="title-medium">Edit Data Departemen</p>
                 @if ($department->id_admin_updated != null)
                     <p class="text-grey-secondary">Terakhir diperbarui : {{ ($department->updated_at)->isoFormat('dddd, D MMMM Y') }}</p>
-                    <p class="text-grey-secondary mb-1">Oleh : {{ $department->updatedBy->nama_lengkap }}</p>
+                    <p class="text-grey-secondary mb-1">Oleh : {{ $department->updatedBy->full_name }}</p>
                 @endif
             </div>
             <form autocomplete="off" class="flex flex-col gap-y-6" action="{{ route('departemen.update', $department->id) }}" method="POST" enctype="multipart/form-data">

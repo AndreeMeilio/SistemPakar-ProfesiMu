@@ -30,8 +30,8 @@
                             <tr>
                                 <td class="bg-white">{{ $index+1 }}</td>
                                 <td>
-                                    <img src="{{ isset($quotes->foto) ? 
-                                        asset('storage/images/kutipan/'.$quotes->foto) : asset('assets/images/default_photo.png') }}" 
+                                    <img src="{{ isset($quotes->photo) ? 
+                                        asset('storage/images/kutipan/'.$quotes->photo) : asset('assets/images/default_photo.png') }}" 
                                         alt="Foto Pengutip" class="w-12 h-12 object-cover rounded-full">
                                 </td>
                                 <td>{{ $quotes->nama }}</td>

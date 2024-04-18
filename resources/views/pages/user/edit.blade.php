@@ -27,7 +27,7 @@
                 <p class="title-medium">Edit Pengguna</p>
                 @if ($user->id_admin_updated != null)
                     <p class="text-grey-secondary">Terakhir diperbarui : {{ ($user->updated_at)->isoFormat('dddd, D MMMM Y') }}</p>
-                    <p class="text-grey-secondary mb-1">Oleh : {{ $user->updatedBy->nama_lengkap }}</p>
+                    <p class="text-grey-secondary mb-1">Oleh : {{ $user->updatedBy->full_name }}</p>
                 @endif
             </div>
             <form autocomplete="off" class="flex flex-col gap-y-6" action="{{ route('pengguna.update', $user->id) }}" method="POST" enctype="multipart/form-data">
@@ -40,13 +40,13 @@
                     <hr/>
                     <div class="flex flex-col p-5 gap-5">
                         <div>
-                            <label for="foto" class="block mb-2">Foto Pengguna</label>
-                            <input name="foto" type="file" id="foto" accept="image/png, image/jpg, image/jpeg" class="input-field">
+                            <label for="photo" class="block mb-2">Foto Pengguna</label>
+                            <input name="photo" type="file" id="photo" accept="image/png, image/jpg, image/jpeg" class="input-field">
                         </div>
                         <div>
-                            <label for="nama_lengkap" class="block mb-2">Nama Lengkap <span class="text-red">*</span></label>
-                            <input name="nama_lengkap" value="{{ $user->nama_lengkap }}" type="text" id="nama_lengkap" class="input-field" placeholder="Masukkan nama pengguna" value="{{ old('nama_lengkap') }}">
-                            @error('nama_lengkap')
+                            <label for="full_name" class="block mb-2">Nama Lengkap <span class="text-red">*</span></label>
+                            <input name="full_name" value="{{ $user->full_name }}" type="text" id="full_name" class="input-field" placeholder="Masukkan nama pengguna" value="{{ old('full_name') }}">
+                            @error('full_name')
                                 <div class="error-message mt-2">
                                     {{ $message }}
                                 </div>

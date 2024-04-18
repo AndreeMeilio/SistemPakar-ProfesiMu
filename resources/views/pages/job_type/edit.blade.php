@@ -27,7 +27,7 @@
                 <p class="title-medium">Edit Tipe Pekerjaan</p>
                 @if ($jobType->id_admin_updated != null)
                     <p class="text-grey-secondary">Terakhir diperbarui : {{ ($jobType->updated_at)->isoFormat('dddd, D MMMM Y') }}</p>
-                    <p class="text-grey-secondary mb-1">Oleh : {{ $jobType->updatedBy->nama_lengkap }}</p>
+                    <p class="text-grey-secondary mb-1">Oleh : {{ $jobType->updatedBy->full_name }}</p>
                 @endif
             </div>
             <form autocomplete="off" class="flex flex-col gap-y-6" action="{{ route('tipe-pekerjaan.update', $jobType->id) }}" method="POST" enctype="multipart/form-data">

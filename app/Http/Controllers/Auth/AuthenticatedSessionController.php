@@ -33,7 +33,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        $flasher->addSuccess('Selamat Anda Berhasil Masuk');
+        $flasher->addSuccess('Anda Berhasil Masuk');
 
         return redirect()->intended(RouteServiceProvider::HOME);
     }
@@ -52,7 +52,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        $flasher->addSuccess('Selamat Anda Berhasil Keluar');
+        $flasher->addSuccess('Anda Berhasil Keluar');
 
         return redirect('/masuk');
     }

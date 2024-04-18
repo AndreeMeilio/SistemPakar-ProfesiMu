@@ -4,13 +4,13 @@
         <meta charset="utf-8">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Penilaian Kinerja Online HRIS Kompas">
-        <meta name="author" content="HRIS Interns">
+        <meta name="description" content="Tes Kepribadian dan Profesi Digital">
+        <meta name="author" content="Rachmadzii">
 
         <title>404 — HRIS</title>
 
         <!-- Favicon -->
-        <link rel="icon" type="image/png" href="{{ asset('assets/images/kompas_logo.png') }}" />
+        <link rel="icon" type="image/png" href="{{ asset('assets/images/logo.png') }}" />
 
         <!-- Font -->
         <link rel="preconnect" href="https://fonts.googleapis.com">

@@ -51,7 +51,7 @@
                             @foreach ($potentialApplicants as $applicant)
                             <tr>
                                 <td class="bg-white">{{ $loop->iteration }}</td>
-                                <td>{{ $applicant->nama_lengkap }}</td>
+                                <td>{{ $applicant->full_name }}</td>
                                 <td>{{ $applicant->no_telp }}</td>
                                 <td>{{ $applicant->email }}</td>
                                 <td>
@@ -62,7 +62,7 @@
                                         </div>
                                     @else
                                         <div class="flex items-center gap-x-3">
-                                            <div class="min-w-[10px] min-h-[10px] rounded-full bg-orange"></div>
+                                            <div class="min-w-[10px] min-h-[10px] rounded-full bg-orange-primary"></div>
                                             <p>Cadangan</p>
                                         </div>
                                     @endif

@@ -33,18 +33,18 @@
                     <hr/>
                     <div class="flex flex-col p-5 gap-5">
                         <div>
-                            <label for="foto" class="block mb-2">Foto Pengguna <span class="text-red">*</span></label>
-                            <input name="foto" type="file" id="foto" accept="image/png, image/jpg, image/jpeg" class="input-field">
-                            @error('foto')
+                            <label for="photo" class="block mb-2">Foto Pengguna <span class="text-red">*</span></label>
+                            <input name="photo" type="file" id="photo" accept="image/png, image/jpg, image/jpeg" class="input-field">
+                            @error('photo')
                                 <div class="error-message mt-2">
                                     {{ $message }}
                                 </div>
                             @enderror
                         </div>
                         <div>
-                            <label for="nama_lengkap" class="block mb-2">Nama Lengkap <span class="text-red">*</span></label>
-                            <input name="nama_lengkap" type="text" id="nama_lengkap" class="input-field" placeholder="Masukkan nama pengguna" value="{{ old('nama_lengkap') }}">
-                            @error('nama_lengkap')
+                            <label for="full_name" class="block mb-2">Nama Lengkap <span class="text-red">*</span></label>
+                            <input name="full_name" type="text" id="full_name" class="input-field" placeholder="Masukkan nama pengguna" value="{{ old('full_name') }}">
+                            @error('full_name')
                                 <div class="error-message mt-2">
                                     {{ $message }}
                                 </div>

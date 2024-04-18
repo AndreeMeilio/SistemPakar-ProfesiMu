@@ -1,5 +1,5 @@
 @php
-$fullName = Auth::user()->nama_lengkap;
+$fullName = Auth::user()->full_name;
 $firstName = explode(' ',trim($fullName))[0];
 @endphp
 
@@ -12,11 +12,11 @@ $firstName = explode(' ',trim($fullName))[0];
     </button>
     <div class="dropdown inline-block">
         <button class="py-2 flex items-center gap-x-3 ">
-            @php $photo = Auth::user()->foto @endphp
+            @php $photo = Auth::user()->photo @endphp
             <img src="{{ isset($photo) ? asset('storage/images/pengguna/'.$photo) : asset('assets/images/default_photo.png') }}" alt="Photo Profile" class="w-10 h-10 object-cover rounded-full">
             <div class="flex flex-col text-left">
                 <p class="font-medium">{{ $firstName }}</p>
-                <p class="text-grey-primary text-sm">Admin HR</p>
+                <p class="text-grey-primary text-sm">Admin</p>
             </div>
             <i icon-name="chevron-down"></i>
         </button>

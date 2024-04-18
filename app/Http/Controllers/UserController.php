@@ -14,7 +14,7 @@ use Illuminate\Support\Str;
 class UserController extends Controller
 {
     public function index() {
-        $users = User::orderBy('nama_lengkap')->get();
+        $users = User::orderBy('full_name')->get();
 
         return view('pages.user.index', compact('users'));
     }
@@ -27,8 +27,8 @@ class UserController extends Controller
     {
         $rules = [
             'email' => 'required|email',
-            'foto' => 'required|max:2048',
-            'nama_lengkap' => 'required|string',
+            'photo' => 'required|max:2048',
+            'full_name' => 'required|string',
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ];
 
@@ -41,11 +41,11 @@ class UserController extends Controller
 
         // Input image
         $fileImage = null;
-        if ($request->hasFile('foto')) {
-            $imageName = str_replace(' ', '_', $request->nama_lengkap);
-            $extension = $request->file('foto')->guessExtension();
+        if ($request->hasFile('photo')) {
+            $imageName = str_replace(' ', '_', $request->full_name);
+            $extension = $request->file('photo')->guessExtension();
             $fileImage = $imageName.'.'.$extension;
-            $image = $request->file('foto')->storeAs('public/images/pengguna', $fileImage);
+            $image = $request->file('photo')->storeAs('public/images/pengguna', $fileImage);
         }
 
         $this->validate($request, $rules, $customMessages);
@@ -57,7 +57,7 @@ class UserController extends Controller
         // Request value upload to DB
         $attr = $request->all();
         $attr['uuid'] = Str::uuid();
-        $attr['foto'] = $fileImage;
+        $attr['photo'] = $fileImage;
 
         if (in_array($request->email, $getAllEmail)) {
             $flasher->addError('Data pengguna dengan email '.$request['email'].' sudah tersedia');
@@ -80,7 +80,7 @@ class UserController extends Controller
     public function update(Request $request, NotyfFactory $flasher)
     {
         $rules = [
-            'nama_lengkap' => 'required|string',
+            'full_name' => 'required|string',
             'email' => 'required|email',
         ];
 
@@ -95,21 +95,21 @@ class UserController extends Controller
         // Upload new file
         $fileImage = null;
 
-        if ($request->file('foto') == null) {
-            $fileImage = $pengguna->foto;
+        if ($request->file('photo') == null) {
+            $fileImage = $pengguna->photo;
         }
         else {
-            if ($request->hasFile('foto')) {
-                $imageName = str_replace(' ', '_', $request->nama_lengkap);
-                $extension = $request->file('foto')->guessExtension();
+            if ($request->hasFile('photo')) {
+                $imageName = str_replace(' ', '_', $request->full_name);
+                $extension = $request->file('photo')->guessExtension();
                 $fileImage = $imageName.'.'.$extension;
-                $image = $request->file('foto')->storeAs('public/images/pengguna', $fileImage);
+                $image = $request->file('photo')->storeAs('public/images/pengguna', $fileImage);
             }
         }
 
         // Request value upload to DB
         $attr = $request->all();
-        $attr['foto'] = $fileImage;
+        $attr['photo'] = $fileImage;
         $attr['id_admin_updated'] = Auth::user()->id;
 
         $pengguna->update($attr);

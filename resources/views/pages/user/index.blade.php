@@ -29,11 +29,11 @@
                             <tr>
                                 <td class="bg-white">{{ $index+1 }}</td>
                                 <td>
-                                    <img src="{{ isset($user->foto) ?
-                                        asset('storage/images/pengguna/'.$user->foto) : asset('assets/images/default_photo.png') }}"
+                                    <img src="{{ isset($user->photo) ?
+                                        asset('storage/images/pengguna/'.$user->photo) : asset('assets/images/default_photo.png') }}"
                                         alt="Foto Pengutip" class="w-12 h-12 object-cover rounded-full">
                                 </td>
-                                <td>{{ $user->nama_lengkap }}</td>
+                                <td>{{ $user->full_name }}</td>
                                 <td>{{ $user->email }}</td>
                                 <td>
                                 <div class="flex gap-x-3 justify-center">

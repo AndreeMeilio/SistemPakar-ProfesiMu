@@ -3,13 +3,13 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Penilaian Kinerja Online HRIS Kompas">
-        <meta name="author" content="HRIS Interns">
+        <meta name="description" content="Tes Kepribadian dan Profesi Digital">
+        <meta name="author" content="Rachmadzii">
 
-        <title>{{ $title }} — Karier Kompas</title>
+        <title>{{ $title }} — Dashboard ProfesiMu</title>
 
         <!-- Favicon -->
-        <link rel="icon" type="image/png" href="{{ asset('assets/images/kompas_logo.png') }}" />
+        <link rel="icon" type="image/png" href="{{ asset('assets/images/logo.png') }}" />
 
         <!-- Font -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,7 +30,7 @@
     <body>
         <x-sidebar></x-sidebar>
 
-        <main id="main-content" class="content flex flex-col flex-1 min-h-screen lg:ml-[330px]">
+        <main id="dashboard-content" class="content flex flex-col flex-1 min-h-screen lg:ml-[330px]">
             <x-navbar></x-navbar>
 
             <section class="px-8 pt-8 pb-24">

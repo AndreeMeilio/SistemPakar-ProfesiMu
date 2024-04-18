@@ -50,7 +50,7 @@ class PotentialController extends Controller
                                 ->where(function($query) {
                                     $query->where('status_potensi', 'Cocok')
                                     ->orWhere('status_potensi', 'Cadangan');
-                                })->orderBy('status_potensi', 'DESC')->orderBy('nama_lengkap')->get();
+                                })->orderBy('status_potensi', 'DESC')->orderBy('full_name')->get();
 
         $jobVacancy->pelamar_count = $potentialApplicants->count();
 

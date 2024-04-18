@@ -27,7 +27,7 @@
                 <p class="title-medium">Edit Kutipan Kompas</p>
                 @if ($quotes->id_admin_updated != null)
                     <p class="text-grey-secondary">Terakhir diperbarui : {{ ($quotes->updated_at)->isoFormat('dddd, D MMMM Y') }}</p>
-                    <p class="text-grey-secondary mb-1">Oleh : {{ $quotes->updatedBy->nama_lengkap }}</p>
+                    <p class="text-grey-secondary mb-1">Oleh : {{ $quotes->updatedBy->full_name }}</p>
                 @endif
             </div>
             <form autocomplete="off" class="flex flex-col gap-y-6" action="{{ route('kutipan.update', $quotes->id) }}" method="POST" enctype="multipart/form-data">
@@ -40,8 +40,8 @@
                     <hr/>
                     <div class="flex flex-col p-5 gap-5">
                         <div>
-                            <label for="foto" class="block mb-2">Foto Pengutip</label>
-                            <input name="foto" type="file" id="foto" accept="image/png, image/jpg, image/jpeg" class="input-field">
+                            <label for="photo" class="block mb-2">Foto Pengutip</label>
+                            <input name="photo" type="file" id="photo" accept="image/png, image/jpg, image/jpeg" class="input-field">
                         </div>
                         <div>
                             <label for="nama" class="block mb-2">Nama Pengutip <span class="text-red">*</span></label>

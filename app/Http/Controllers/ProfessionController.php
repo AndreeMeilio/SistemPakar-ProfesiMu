@@ -3,21 +3,24 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Profession;
+
 use App\Models\Lowongan;
 use App\Models\TipePekerjaan;
 use App\Models\Departemen;
+
 use Flasher\Notyf\Prime\NotyfFactory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Jenssegers\Date\Date;
 
-class JobVacancyController extends Controller
+class ProfessionController extends Controller
 {
     public function index() {
-        $jobsList = Lowongan::orderBy('status_aktif', 'DESC')->orderBy('nama')->get();
+        $professions = Profession::orderBy('profession_name')->get();
 
-        return view('pages.job_vacancy.index', compact('jobsList'));
+        return view('pages.profession.index', compact('professions'));
     }
     
     public function show(Request $request) {
@@ -33,7 +36,7 @@ class JobVacancyController extends Controller
             'deadline' => $deadline
         ];
 
-        return view('pages.job_vacancy.detail', $data);
+        return view('pages.profession.detail', $data);
     }
 
     public function create() {
@@ -45,7 +48,7 @@ class JobVacancyController extends Controller
             'departments' => $departments,
         ];
 
-        return view('pages.job_vacancy.add', $data);
+        return view('pages.profession.add', $data);
     }
 
     public function store(Request $request, NotyfFactory $flasher) {
@@ -83,23 +86,23 @@ class JobVacancyController extends Controller
 
         if ($checkJobDate) {
             $flasher->addError('Tanggal dibuka dan tanggal ditutup tidak sesuai');
-            $redirect = redirect(route('lowongan-kerja.create'));
+            $redirect = redirect(route('profesi-digital.create'));
         }
         
         if ($checkStartDate) {
             $flasher->addError('Status lowongan tidak sesuai dengan tanggal dibuka');
-            $redirect = redirect(route('lowongan-kerja.create'));
+            $redirect = redirect(route('profesi-digital.create'));
         }
 
         if ($checkEndDate) {
             $flasher->addError('Status lowongan tidak sesuai dengan tanggal ditutup');
-            $redirect = redirect(route('lowongan-kerja.create'));
+            $redirect = redirect(route('profesi-digital.create'));
         }
         
         if (!$checkJobDate && !$checkStartDate && !$checkEndDate) {
             Lowongan::create($requestValue);
             $flasher->addSuccess('Data lowongan kerja berhasil ditambahkan');
-            $redirect = redirect(route('lowongan-kerja.index'));
+            $redirect = redirect(route('profesi-digital.index'));
         }
 
         return $redirect;
@@ -116,7 +119,7 @@ class JobVacancyController extends Controller
             'departments' => $departments,
         ];
 
-        return view('pages.job_vacancy.edit', $data);
+        return view('pages.profession.edit', $data);
     }
 
     public function update(Request $request, NotyfFactory $flasher) {
@@ -156,23 +159,23 @@ class JobVacancyController extends Controller
 
         if ($checkJobDate) {
             $flasher->addError('Tanggal dibuka dan tanggal ditutup tidak sesuai');
-            $redirect = redirect(route('lowongan-kerja.edit', $request->id));
+            $redirect = redirect(route('profesi-digital.edit', $request->id));
         }
         
         if ($checkStartDate) {
             $flasher->addError('Status lowongan tidak sesuai dengan tanggal dibuka');
-            $redirect = redirect(route('lowongan-kerja.edit', $request->id));
+            $redirect = redirect(route('profesi-digital.edit', $request->id));
         }
 
         if ($checkEndDate) {
             $flasher->addError('Status lowongan tidak sesuai dengan tanggal ditutup');
-            $redirect = redirect(route('lowongan-kerja.edit', $request->id));
+            $redirect = redirect(route('profesi-digital.edit', $request->id));
         }
         
         if (!$checkJobDate && !$checkStartDate && !$checkEndDate) {
             $job->update($requestValue);
             $flasher->addSuccess('Data lowongan kerja berhasil diperbarui');    
-            $redirect = redirect(route('lowongan-kerja.index'));
+            $redirect = redirect(route('profesi-digital.index'));
         }
         
         return $redirect;
@@ -184,6 +187,6 @@ class JobVacancyController extends Controller
         $job->delete();
         $flasher->addSuccess('Data lowongan kerja berhasil dihapus');
 
-        return to_route('lowongan-kerja.index');
+        return to_route('profesi-digital.index');
     }
 }

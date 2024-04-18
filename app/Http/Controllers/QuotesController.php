@@ -24,7 +24,7 @@ class QuotesController extends Controller
     public function store(Request $request, NotyfFactory $flasher) {
         $rules = [
             'nama' => 'required|string',
-            'foto' => 'required|max:2048',
+            'photo' => 'required|max:2048',
             'kutipan' => 'required|string',
             'posisi' => 'required|string',
         ];
@@ -34,18 +34,18 @@ class QuotesController extends Controller
         ];
 
         $fileImage = null;
-        if ($request->hasFile('foto')) {
+        if ($request->hasFile('photo')) {
             $imageName = str_replace(' ', '_', $request->nama);
-            $extension = $request->file('foto')->guessExtension();
+            $extension = $request->file('photo')->guessExtension();
             $fileImage = $imageName.'.'.$extension;
-            $image = $request->file('foto')->storeAs('public/images/kutipan', $fileImage);
+            $image = $request->file('photo')->storeAs('public/images/kutipan', $fileImage);
         }
 
         $this->validate($request, $rules, $customMessages);
 
         // Request value upload to DB
         $requestValue = $request->all();
-        $requestValue['foto'] = $fileImage;
+        $requestValue['photo'] = $fileImage;
         $requestValue['uuid'] = Str::uuid();
 
         Kutipan::create($requestValue);
@@ -63,7 +63,7 @@ class QuotesController extends Controller
     public function update(Request $request, NotyfFactory $flasher) {
         $rules = [
             'nama' => 'required|string',
-            'foto' => 'max:2048',
+            'photo' => 'max:2048',
             'kutipan' => 'required|string',
             'posisi' => 'required|string',
         ];
@@ -79,21 +79,21 @@ class QuotesController extends Controller
         // Upload new file
         $fileImage = null;
 
-        if ($request->file('foto') == null) {
-            $fileImage = $quotes->foto;
+        if ($request->file('photo') == null) {
+            $fileImage = $quotes->photo;
         }
         else {
-            if ($request->hasFile('foto')) {
+            if ($request->hasFile('photo')) {
                 $imageName = str_replace(' ', '_', $request->nama);
-                $extension = $request->file('foto')->guessExtension();
+                $extension = $request->file('photo')->guessExtension();
                 $fileImage = $imageName.'.'.$extension;
-                $image = $request->file('foto')->storeAs('public/images/kutipan', $fileImage);
+                $image = $request->file('photo')->storeAs('public/images/kutipan', $fileImage);
             }
         }
 
         // Request value upload to DB
         $requestValue = $request->all();
-        $requestValue['foto'] = $fileImage;
+        $requestValue['photo'] = $fileImage;
         $requestValue['id_admin_updated'] = Auth::user()->id;
 
         $quotes->update($requestValue);

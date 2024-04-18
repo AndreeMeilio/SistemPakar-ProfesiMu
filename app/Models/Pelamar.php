@@ -13,7 +13,7 @@ class Pelamar extends Model
 
     protected $guarded = ['id'];
 
-    protected $fillable = ['uuid', 'nama', 'foto', 'email', 'no_telp', 'tanggal_lahir', 'domisili', 'institusi', 'program_studi', 'pendidikan_terakhir', 'semester_saat_ini', 'pengalaman_kerja', 'ekspektasi_pendapatan', 'cv_resume', 'dokumen_lainnya', 'informasi_tambahan', 'id_lowongan', 'status_potensi'];
+    protected $fillable = ['uuid', 'nama', 'photo', 'email', 'no_telp', 'tanggal_lahir', 'domisili', 'institusi', 'program_studi', 'pendidikan_terakhir', 'semester_saat_ini', 'pengalaman_kerja', 'ekspektasi_pendapatan', 'cv_resume', 'dokumen_lainnya', 'informasi_tambahan', 'id_lowongan', 'status_potensi'];
 
     public function lowongan() {
         return $this->belongsTo(Lowongan::class, 'id_lowongan');

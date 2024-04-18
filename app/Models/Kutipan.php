@@ -13,7 +13,7 @@ class Kutipan extends Model
 
     protected $guarded = ['id'];
 
-    protected $fillable = ['uuid', 'nama', 'foto', 'kutipan', 'posisi', 'id_admin_updated'];
+    protected $fillable = ['uuid', 'nama', 'photo', 'kutipan', 'posisi', 'id_admin_updated'];
 
     public function updatedBy() {
         return $this->belongsTo(User::class, 'id_admin_updated');

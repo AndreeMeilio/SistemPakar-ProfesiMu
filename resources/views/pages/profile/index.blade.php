@@ -10,12 +10,12 @@
         <div class="flex flex-col gap-y-5">
             <div class="row-span-2">
                 <p class="mb-2 font-medium text-blue-primary">Foto Profil</p>
-                <img src="{{ isset($profile->foto) ? asset('storage/images/pengguna/'.$profile->foto) : asset('assets/images/default_photo.png') }}" alt="Photo Profile" class="w-24 h-24 object-cover rounded-full">
+                <img src="{{ isset($profile->photo) ? asset('storage/images/pengguna/'.$profile->photo) : asset('assets/images/default_photo.png') }}" alt="Photo Profile" class="w-24 h-24 object-cover rounded-full">
             </div>
             <div class="flex flex-col gap-6">
                 <div>
                     <p class="mb-1.5 font-medium text-blue-primary">Nama Lengkap</p>
-                    <p class="font-medium">{{ $profile->nama_lengkap }}</p>
+                    <p class="font-medium">{{ $profile->full_name }}</p>
                 </div>
                 <div>
                     <p class="mb-1.5 font-medium text-blue-primary">Email</p>
@@ -24,8 +24,8 @@
             </div>
             <hr>
             <div class="row-span-2 mb-5">
-                <p class="mb-3 font-medium text-blue-primary">Ubah Kata Sandi</p>
-                <a href="{{ route('profile_password.edit', $profile->id) }}" class="max-w-[210px] button-primary-hover">
+                <p class="mb-3 font-medium text-blue-primary">Pengaturan Kata Sandi</p>
+                <a href="{{ route('profile_password.edit', $profile->id) }}" class="w-fit py-3 px-6 button-primary">
                     Ubah Kata Sandi
                     <i icon-name="arrow-right" class="ml-2"></i>
                 </a>

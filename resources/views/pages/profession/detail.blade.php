@@ -16,7 +16,7 @@
             <nav class="flex" aria-label="Breadcrumb">
                 <ol class="inline-flex items-center gap-x-2.5">
                     <li>
-                        <a href="{{ route('lowongan-kerja.index') }}" class="breadcrumb-link">
+                        <a href="{{ route('profesi-digital.index') }}" class="breadcrumb-link">
                             Lowongan Kerja
                         </a>
                     </li>

@@ -14,10 +14,10 @@ class AppLayout extends Component
     public $title;
     public $style = null;
     public $script = null;
-    public function __construct( $title = null)
+
+    public function __construct($title = null)
     {
-        $this->title =$title ?? "HRIS";
-        //
+        $this->title = $title ?? "Dashboard ProfesiMu";
     }
 
     /**

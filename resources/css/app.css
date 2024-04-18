@@ -58,36 +58,32 @@ body {
     @apply flex items-center opacity-50 pointer-events-none;
 }
 
+.button-orange {
+    @apply flex justify-center items-center bg-orange-secondary py-3 px-8 text-white font-medium rounded-full;
+}
+
 .chip-green {
     @apply rounded-lg bg-green-secondary text-white font-medium py-1.5 px-3 w-fit h-fit;
 }
 
 .chip-orange {
-    @apply rounded-lg bg-orange text-white font-medium py-1.5 px-3 w-fit h-fit;
+    @apply rounded-lg bg-orange-primary text-white font-medium py-1.5 px-3 w-fit h-fit;
 }
 
 .input-field {
     @apply bg-white border border-gray-300 text-sm rounded-md w-full px-3 py-2.5;
 }
 
-.input-type-color {
-    @apply appearance-none w-full h-full border-0 rounded-md outline-none cursor-pointer p-0;
-}
-
-.input-type-color::-webkit-color-swatch-wrapper {
-    @apply p-0;
-}
-
-.input-type-color::-webkit-color-swatch {
-    @apply border-0 rounded-md;
-}
-
-.input-type-color::-moz-color-swatch {
-    @apply border-0 rounded-md;
-}
-
 .error-message {
     @apply capitalize-first text-sm text-red;
+}
+
+.card-primary {
+    @apply bg-white border-2 border-blue-dark p-10 rounded-3xl;
+}
+
+.card-option {
+    @apply px-4 py-2.5 bg-white border-2 border-b-4 border-navy rounded-xl w-44;
 }
 
 /* Alert Notyf */
@@ -113,6 +109,14 @@ body {
     @apply rounded-3xl bg-grey-stroke;
 }
 
-.ck-editor__editable[role="textbox"] {
-    height: 200px;
+/* Spinner Button Input */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
 }

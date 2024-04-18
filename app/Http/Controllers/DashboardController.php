@@ -9,7 +9,7 @@ use Flasher\Notyf\Prime\NotyfFactory;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
-class HomeController extends Controller
+class DashboardController extends Controller
 {
     public function index() {
         $applicants = Pelamar::all();
@@ -27,6 +27,6 @@ class HomeController extends Controller
             'todayApplicants' => $todayApplicants
         ];
 
-        return view('pages.home.index', $data);
+        return view('pages.dashboard.index', $data);
     }
 }

@@ -18,13 +18,11 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'uuid',
-        'nama_lengkap',
-        'foto',
+        'full_name',
+        'photo',
         'email',
         'password',
         'password_confirmation',
-        'id_admin_updated'
     ];
 
     /**
@@ -45,8 +43,4 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-    public function updatedBy() {
-        return $this->belongsTo(User::class, 'id_admin_updated');
-    }
 }

@@ -29,15 +29,19 @@ module.exports = {
         },
         extend: {
             colors: {
-                navy: "#121F3E",
+                navy: "#113265",
                 blue: {
                     primary: "#005596",
                     secondary: "#2579D1",
                     accent: "#E1F0FF",
                     shadow: "#7E8CAC",
+                    dark: "#0C2E62",
                 },
                 red: "#D71920",
-                orange: "#FEBD57",
+                orange: {
+                    primary: "#FEBD57",
+                    secondary: "#E77E49",
+                },
                 green: {
                     primary: "#50A718",
                     secondary: "#2ED16C",
@@ -49,6 +53,7 @@ module.exports = {
                     stroke: "#F2F2F2",
                 },
                 background: "#F8F9Fd",
+                backgroundLight: "#FAFAFA",
             },
         },
     },
