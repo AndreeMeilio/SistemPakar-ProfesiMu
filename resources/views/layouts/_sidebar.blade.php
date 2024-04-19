@@ -32,6 +32,6 @@
         </div>
     </div>
     <div class="pb-10">
-        <p class="text-center text-grey-secondary">©2023 ProfesiMu</p>
+        <p class="text-center text-grey-secondary">© 2024 ProfesiMu</p>
     </div>
 </aside>

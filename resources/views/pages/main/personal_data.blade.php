@@ -39,11 +39,11 @@
                             <label for="gender" class="block mb-2">Jenis Kelamin <span class="text-red">*</span></label>
                             <div class="flex items-center gap-7 pt-2">
                                 <div class="flex items-center">
-                                    <input id="gender-men" type="radio" value="Laki-laki" name="gender" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300">
+                                    <input checked id="gender-men" type="radio" value="Laki-laki" name="gender" class="w-4 h-4 text-orange-secondary focus:ring-orange-secondary bg-gray-100 border-gray-300">
                                     <label for="gender-men" class="ml-2">Laki-laki</label>
                                 </div>
                                 <div class="flex items-center">
-                                    <input checked id="gender-women" type="radio" value="Perempuan" name="gender" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300">
+                                    <input id="gender-women" type="radio" value="Perempuan" name="gender" class="w-4 h-4 text-orange-secondary focus:ring-orange-secondary bg-gray-100 border-gray-300">
                                     <label for="gender-women" class="ml-2">Perempuan</label>
                                 </div>
                             </div>
@@ -57,7 +57,18 @@
                     <div class="flex gap-10">
                         <div class="w-full">
                             <label for="education" class="block mb-2">Pendidikan Terakhir <span class="text-red">*</span></label>
-                            <input name="education" type="text" id="education" class="input-field" placeholder="Pilih pendidikan terakhir" value="{{ old('education') }}">
+                            <select id="education" name="education" class="input-field">
+                                <option selected>Pilih pendidikan terakhir</option>
+                                <option value="SMP">SMP/Sederajat</option>
+                                <option value="SMA">SMA/SMK/Sederajat</option>
+                                <option value="D1">Diploma I (D1)</option>
+                                <option value="D2">Diploma II (D2)</option>
+                                <option value="D3">Diploma III (D3)</option>
+                                <option value="D4">Diploma IV (D4)</option>
+                                <option value="S1">Strata I (S1)</option>
+                                <option value="S2">Strata II (S2)</option>
+                                <option value="S3">Strata III (S3)</option>
+                            </select>
                             @error('education')
                                 <div class="error-message mt-2">
                                     {{ $message }}
@@ -77,9 +88,17 @@
                     <div>
                         <div class="flex">
                             <label for="experience" class="block mb-2">Pengalaman Kerja atau Belajar Bidang Digital <span class="text-red">*</span></label>
-                            <i icon-name="info" class="w-5 ml-2 text-orange-secondary cursor-pointer"></i>
+                            <a href="/" onclick="return false" data-modal-target="default-modal" data-modal-toggle="default-modal">
+                                <i icon-name="info" class="w-5 ml-2 text-orange-secondary cursor-pointer"></i>
+                            </a>
                         </div>
-                        <input name="experience" type="text" id="experience" class="input-field" placeholder="Pilih pengalaman kerja atau belajar mu" value="{{ old('experience') }}">
+                        <select id="experience" name="experience" class="input-field">
+                            <option selected>Pilih pengalaman kerja atau belajar mu</option>
+                            <option value="Belajar mandiri">Ya, saya memiliki pengalaman belajar mandiri di bidang digital</option>
+                            <option value="Pelatihan digital">Ya, saya pernah mengikuti kursus atau pelatihan di bidang digital</option>
+                            <option value="Bekerja">Ya, saya pernah bekerja atau magang di bidang digital</option>
+                            <option value="Non pengalaman">Tidak, saya belum memiliki pengalaman belajar, kursus, atau bekerja di bidang digital</option>
+                        </select>
                         @error('experience')
                             <div class="error-message mt-2">
                                 {{ $message }}
@@ -100,6 +119,31 @@
                 </form>
             </div>
         </div>
-    </section>
 
+        <!--Modal-->
+        <div id="default-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+            <div class="relative p-4 w-full max-w-2xl max-h-full">
+                <div class="relative bg-white rounded-xl shadow">
+                    <div class="flex items-center justify-between p-5 border-b rounded-t">
+                        <h3 class="text-xl font-semibold text-black">
+                            Penjelasan Pertanyaan Pengalaman Bidang Digital
+                        </h3>
+                        <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center" data-modal-hide="default-modal">
+                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                            </svg>
+                            <span class="sr-only">Tutup Dialog</span>
+                        </button>
+                    </div>
+                    <div class="p-5 space-y-4">
+                        <p class="text-black leading-relaxed text-justify">
+                            <b>Bidang digital</b> merujuk pada semua aspek kehidupan yang terhubung dengan teknologi digital dan internet. 
+                            Hal ini meliputi berbagai bidang seperti pemasaran digital, pengembangan web, analisis data, teknologi informasi, 
+                            desain grafis, ilmu komputer, dan sebagainya.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </x-home-layout>

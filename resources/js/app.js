@@ -3,9 +3,10 @@ import "./bootstrap";
 import Alpine from "alpinejs";
 
 // Script for Collapse Sidebar
-document
-    .getElementById("sidebarCollapseDefault")
-    .addEventListener("click", sidebarCollapse);
+var sidebarCollapseDefault = document.getElementById("sidebarCollapseDefault");
+if (sidebarCollapseDefault) {
+    sidebarCollapseDefault.addEventListener("click", sidebarCollapse);
+}
 
 function sidebarCollapse() {
     document.getElementById("nav-sidebar").classList.toggle("active");
@@ -105,7 +106,3 @@ if (tipePekerjaan && bgColor && textColor) {
     textColor.addEventListener("input", previewJobType);
     previewJobType();
 }
-
-// Script for Text Editor
-ClassicEditor.create(document.querySelector("#deskripsi"));
-ClassicEditor.create(document.querySelector("#persyaratan"));

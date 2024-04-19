@@ -35,19 +35,18 @@
                     <h3 class="font-medium mb-4">Apakah Anda tertarik atau ingin melakukan pekerjaan atau kegiatan di bawah ini?</h3>
                     <div class="h-1.5 w-20 bg-orange-secondary rounded-full"></div>
         
-                    <ol class="mt-6 ml-4 grid gap-3">
+                    <ol class="mt-6 ml-4 grid gap-y-6">
                         <li class="text-black list-decimal">
                             Menggambar ilustrasi sesuatu
-                            <div class="flex gap-4 mt-4">
-                                <div class="card-option">Ya, tertarik</div>
-                                <div class="card-option">Tidak</div>
-                            </div>
-                        </li>
-                        <li class="text-black list-decimal">
-                            Menggambar ilustrasi sesuatu
-                            <div class="flex gap-4 mt-4">
-                                <div class="card-option">Ya, tertarik</div>
-                                <div class="card-option">Tidak</div>
+                            <div class="flex gap-4 mt-4 radio-group">
+                                <div class="w-44">
+                                    <input id="option-yes" type="radio" value="Ya" name="option-radio" class="option-radio !hidden" autocomplete="off">
+                                    <label for="option-yes" class="card-option cursor-pointer">Ya, tertarik</label>
+                                </div>
+                                <div class="w-44">
+                                    <input id="option-no" type="radio" value="Tidak" name="option-radio" class="option-radio !hidden" autocomplete="off">
+                                    <label for="option-no" class="card-option cursor-pointer">Tidak</label>
+                                </div>
                             </div>
                         </li>
                     </ol>
