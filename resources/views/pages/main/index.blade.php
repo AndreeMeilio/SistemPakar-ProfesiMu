@@ -1,5 +1,5 @@
 <x-home-layout>
-    <section class="bg-blue-dark text-white py-12 px-24 h-screen">
+    <section class="bg-navy-primary text-white py-12 px-24 h-screen">
         <nav class="flex justify-between items-center">
             <a href="/" class="flex gap-3">
                 <img src="{{ asset('assets/icons/logo.svg') }}" alt="Logo ProfesiMu" />
@@ -8,17 +8,17 @@
             <ul class="flex gap-12 mt-2">
                 <li class="menu-item">
                     <a href="{{ route('profession') }}">Profesi Digital</a>
-                    <div class="menu-indicator mt-1 h-1 bg-orange-secondary rounded-full"></div>
+                    <div class="menu-indicator mt-1 h-1 bg-orange rounded-full"></div>
                 </li>
                 <li class="menu-item">
                     <a href="{{ route('personality') }}">Apa itu RIASEC?</a>
-                    <div class="menu-indicator mt-1 h-1 bg-orange-secondary rounded-full"></div>
+                    <div class="menu-indicator mt-1 h-1 bg-orange rounded-full"></div>
                 </li>
                 <li class="menu-item">
                     <button data-modal-target="default-modal" data-modal-toggle="default-modal" type="button">
                         Tentang ProfesiMu
                     </button>
-                    <div class="menu-indicator mt-1 h-1 bg-orange-secondary rounded-full"></div>
+                    <div class="menu-indicator mt-1 h-1 bg-orange rounded-full"></div>
                 </li>
             </ul>
         </nav>
@@ -28,7 +28,7 @@
                 <h1 class=" text-4xl font-bold mb-7">
                     Temukan Profesi Digital Mu!
                 </h1>
-                <p class="text-xl text-[#E1F0FF] leading-9">
+                <p class="text-xl text-blue-accent leading-9">
                     Untuk kamu yang ingin menggeluti dunia teknologi digital, <br />
                     cari tahu profesi yang sesuai dengan kepribadian mu <br />
                     berdasarkan RIASEC melalui Holland Test di platform ini!

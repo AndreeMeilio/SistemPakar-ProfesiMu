@@ -9,16 +9,16 @@ use Flasher\Notyf\Prime\NotyfFactory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
-class JobTypeController extends Controller
+class PersonalityController extends Controller
 {
     public function index() {
         $jobTypesList = TipePekerjaan::orderBy('nama')->get();
 
-        return view('pages.job_type.index', compact('jobTypesList'));
+        return view('pages.personalities.index', compact('jobTypesList'));
     }
 
     public function create() {
-        return view('pages.job_type.add');
+        return view('pages.personalities.add');
     }
 
     public function store(Request $request, NotyfFactory $flasher) {
@@ -50,7 +50,7 @@ class JobTypeController extends Controller
     public function edit(Request $request) {
         $jobType = TipePekerjaan::find($request->id);
 
-        return view('pages.job_type.edit', compact('jobType'));
+        return view('pages.personalities.edit', compact('jobType'));
     }
 
     public function update(Request $request, NotyfFactory $flasher) {

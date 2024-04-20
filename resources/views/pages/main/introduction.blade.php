@@ -1,5 +1,5 @@
 <x-home-layout class="bg-backgroundLight text-white h-screen">
-    <section class="h-[376px] mb-10 pt-12 px-24 bg-blue-dark">
+    <section class="h-[376px] mb-10 pt-12 px-24 bg-navy-primary">
         <a href="/" class="flex gap-3">
             <img src="{{ asset('assets/icons/logo_white.svg') }}" alt="Logo ProfesiMu" />
             <p class="text-bold text-xl text-white font-bold">ProfesiMu</p>
@@ -12,7 +12,7 @@
                 <div>
                     <div class="flex flex-col items-center">
                         <h2 class="text-2xl font-bold mb-4">Pengenalan Tes</h2>
-                        <div class="h-1.5 w-24 bg-orange-secondary rounded-full"></div>
+                        <div class="h-1.5 w-24 bg-orange rounded-full"></div>
                     </div>
         
                     <ol class="mt-6 ml-4 grid gap-3">
@@ -37,7 +37,7 @@
                 <div class="mt-12">
                     <div class="flex flex-col items-center">
                         <h2 class="text-2xl font-bold mb-4">Pelaksanaan Tes</h2>
-                        <div class="h-1.5 w-24 bg-orange-secondary rounded-full"></div>
+                        <div class="h-1.5 w-24 bg-orange rounded-full"></div>
                     </div>
         
                     <ol class="mt-6 ml-4 grid gap-3">

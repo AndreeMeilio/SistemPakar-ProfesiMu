@@ -59,7 +59,7 @@ class ProfileChangePasswordController extends Controller
             $request->session()->regenerateToken();
 
 
-            return redirect('/masuk');
+            return redirect('/login-admin');
         }
         else {
             $flasher->addSuccess('Kata Sandi berhasil diperbarui');

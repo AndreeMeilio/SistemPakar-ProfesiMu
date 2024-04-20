@@ -7,7 +7,7 @@
         <meta name="description" content="Tes Kepribadian dan Profesi Digital">
         <meta name="author" content="Rachmadzii">
 
-        <title>404 — HRIS</title>
+        <title>404 — ProfesiMu</title>
 
         <!-- Favicon -->
         <link rel="icon" type="image/png" href="{{ asset('assets/images/logo.png') }}" />

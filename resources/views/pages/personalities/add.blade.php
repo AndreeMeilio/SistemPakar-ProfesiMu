@@ -9,7 +9,7 @@
             <nav class="flex" aria-label="Breadcrumb">
                 <ol class="inline-flex items-center gap-x-2.5">
                     <li>
-                        <a href="{{ route('tipe-pekerjaan.index') }}" class="breadcrumb-link">
+                        <a href="{{ route('karakteristik-riasec.index') }}" class="breadcrumb-link">
                             Tipe Pekerjaan
                         </a>
                     </li>
@@ -24,7 +24,7 @@
         </div>
         <div class="flex flex-col gap-y-5 max-w-[600px] max-sm:w-full">
             <p class="title-medium">Tambah Tipe Pekerjaan</p>
-            <form autocomplete="off" class="flex flex-col gap-y-6" action="{{ route('tipe-pekerjaan.store') }}" method="POST" enctype="multipart/form-data">
+            <form autocomplete="off" class="flex flex-col gap-y-6" action="{{ route('karakteristik-riasec.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="flex flex-col bg-white rounded-xl">
                     <p class="font-medium py-3.5 px-5">
@@ -72,7 +72,7 @@
                     </div>
                 </div>
                 <div class="flex justify-end gap-x-4 mt-2 max-sm:flex-col-reverse gap-y-3">
-                    <a href="{{ route('tipe-pekerjaan.index') }}" class="button-danger py-3 px-10">
+                    <a href="{{ route('karakteristik-riasec.index') }}" class="button-danger py-3 px-10">
                         Batal
                     </a>
                     <button type="submit" class="button-primary py-3 px-10">

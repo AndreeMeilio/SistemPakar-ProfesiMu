@@ -9,7 +9,7 @@
             <nav class="flex" aria-label="Breadcrumb">
                 <ol class="inline-flex items-center gap-x-2.5">
                     <li>
-                        <a href="{{ route('tipe-pekerjaan.index') }}" class="breadcrumb-link">
+                        <a href="{{ route('karakteristik-riasec.index') }}" class="breadcrumb-link">
                             Tipe Pekerjaan
                         </a>
                     </li>
@@ -30,7 +30,7 @@
                     <p class="text-grey-secondary mb-1">Oleh : {{ $jobType->updatedBy->full_name }}</p>
                 @endif
             </div>
-            <form autocomplete="off" class="flex flex-col gap-y-6" action="{{ route('tipe-pekerjaan.update', $jobType->id) }}" method="POST" enctype="multipart/form-data">
+            <form autocomplete="off" class="flex flex-col gap-y-6" action="{{ route('karakteristik-riasec.update', $jobType->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="flex flex-col bg-white rounded-xl">
@@ -79,7 +79,7 @@
                     </div>
                 </div>
                 <div class="flex justify-end gap-x-4 mt-2 max-sm:flex-col-reverse gap-y-3">
-                    <a href="{{ route('tipe-pekerjaan.index') }}" class="button-danger py-3 px-10">
+                    <a href="{{ route('karakteristik-riasec.index') }}" class="button-danger py-3 px-10">
                         Batal
                     </a>
                     <button type="submit" class="button-primary py-3 px-10">

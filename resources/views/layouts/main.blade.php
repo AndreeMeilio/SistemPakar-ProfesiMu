@@ -31,7 +31,7 @@
     <body>
         <x-sidebar></x-sidebar>
 
-        <main id="dashboard-content" class="content flex flex-col flex-1 min-h-screen lg:ml-[330px]">
+        <main id="dashboard-content" class="content flex flex-col flex-1 min-h-screen lg:ml-[300px]">
             <x-navbar></x-navbar>
 
             <section class="px-8 pt-8 pb-24">

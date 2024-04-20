@@ -54,6 +54,6 @@ class AuthenticatedSessionController extends Controller
 
         $flasher->addSuccess('Anda Berhasil Keluar');
 
-        return redirect('/masuk');
+        return redirect('/login-admin');
     }
 }

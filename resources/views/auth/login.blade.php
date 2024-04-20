@@ -6,7 +6,7 @@
         <meta name="description" content="Cari tahu karier digital mu lewat ProfesiMu">
         <meta name="author" content="Rachma Adzima">
 
-        <title>Masuk Akun — Dashboard ProfesiMu</title>
+        <title>Login Admin — Dashboard ProfesiMu</title>
 
         <!-- Favicon -->
         <link rel="icon" type="image/png" href="{{ asset('assets/images/logo.png') }}" />
@@ -27,7 +27,7 @@
         <main class="flex justify-center items-center h-screen max-md:p-5 p-10">
             <div class="flex-col m-2">
                 <div class="flex flex-col w-full gap-y-2 items-center justify-center text-white text-center max-lg:rounded-t-3xl py-8 px-10 lg:w-[500px] lg:rounded-l-3xl">
-                    <p class="font-semibold text-navy text-2xl">
+                    <p class="font-semibold text-navy-primary text-2xl">
                         Login
                     </p>
                     <p class="font-semibold text-blue-primary text-xl">
@@ -35,7 +35,7 @@
                     </p>
                 </div>
                 <div class="flex flex-col w-full bg-white max-lg:rounded-3xl lg:w-[500px] lg:rounded-3xl p-8">
-                    <form autocomplete="off" action="{{ route('masuk') }}" method="post" >
+                    <form autocomplete="off" action="{{ route('login-admin') }}" method="post" >
                         @csrf
                         <div class="mb-4">
                             <label for="email" class="block mb-2">Email <span class="text-red">*</span></label>

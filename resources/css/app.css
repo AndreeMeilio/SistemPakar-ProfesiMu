@@ -11,7 +11,7 @@ body {
 
 /* Component */
 .title-large {
-    @apply font-semibold text-[32px] text-navy;
+    @apply font-semibold text-[32px] text-navy-primary;
 }
 
 .title-semibold {
@@ -19,7 +19,7 @@ body {
 }
 
 .title-medium {
-    @apply font-medium text-navy text-xl mb-1;
+    @apply font-medium text-navy-primary text-xl mb-1;
 }
 
 .breadcrumb-link {
@@ -59,19 +59,11 @@ body {
 }
 
 .button-orange {
-    @apply flex justify-center items-center bg-orange-secondary py-3 px-8 text-white font-medium rounded-full;
-}
-
-.chip-green {
-    @apply rounded-lg bg-green-secondary text-white font-medium py-1.5 px-3 w-fit h-fit;
-}
-
-.chip-orange {
-    @apply rounded-lg bg-orange-primary text-white font-medium py-1.5 px-3 w-fit h-fit;
+    @apply flex justify-center items-center bg-orange py-3 px-8 text-white font-medium rounded-full;
 }
 
 .input-field {
-    @apply bg-white border border-gray-300 text-sm rounded-md w-full px-3 py-2.5 focus:ring-orange-secondary focus:border-orange-secondary;
+    @apply bg-white border border-gray-300 text-sm rounded-md w-full px-3 py-2.5 focus:ring-orange focus:border-orange;
 }
 
 .error-message {
@@ -79,11 +71,11 @@ body {
 }
 
 .card-primary {
-    @apply bg-white border-2 border-blue-dark p-10 rounded-3xl;
+    @apply bg-white border-2 border-navy-primary p-10 rounded-3xl;
 }
 
 .card-option {
-    @apply px-4 py-2.5 border-2 border-b-4 border-navy rounded-xl flex;
+    @apply px-4 py-2.5 border-2 border-b-4 border-navy-primary rounded-xl flex;
 }
 
 .menu-indicator {
@@ -96,7 +88,7 @@ body {
 }
 
 .option-radio:checked + .card-option {
-    background-color: #e0ecff;
+    background-color: #e1f0ff;
 }
 
 /* Alert Notyf */
@@ -132,4 +124,8 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type="number"] {
     -moz-appearance: textfield;
+}
+
+.dataTables_wrapper .dataTables_length select {
+    padding-right: 32px !important;
 }

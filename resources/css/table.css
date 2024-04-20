@@ -12,7 +12,7 @@ table.dataTable {
 }
 
 thead {
-    @apply text-navy bg-blue-accent;
+    @apply text-navy-primary bg-blue-accent;
 }
 
 th {

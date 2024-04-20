@@ -1,10 +1,10 @@
-<x-app-layout title="Tipe Pekerjaan">
+<x-app-layout title="Karakteristik RIASEC">
     <div class="flex flex-col gap-y-10">
-        <h1 class="title-large">Tipe Pekerjaan</h1>
+        <h1 class="title-large">Karakteristik RIASEC</h1>
         <div class="flex flex-col gap-y-5">
             <div class="flex justify-between gap-5 max-sm:flex-col sm:items-center">
-                <p class="title-medium">Daftar Tipe Pekerjaan</p>
-                <a href="{{ route('tipe-pekerjaan.create') }}" class="button-primary justify-center px-6 py-3">
+                <p class="title-medium">Daftar Karakteristik RIASEC</p>
+                <a href="{{ route('karakteristik-riasec.create') }}" class="button-primary justify-center px-6 py-3">
                     <div class="flex gap-x-2">
                         <i icon-name="plus"></i>
                         <p>Tambah</p>
@@ -18,7 +18,7 @@
                         <thead>
                             <tr>
                             <th>No.</th>
-                            <th>Tipe Pekerjaan</th>
+                            <th>Karakteristik RIASEC</th>
                             <th>Warna Latar</th>
                             <th>Warna Teks</th>
                             <th>Slug</th>
@@ -45,10 +45,10 @@
                                 <td>{{ $jobType->slug }}</td>
                                 <td>
                                 <div class="flex gap-x-3 justify-center">
-                                    <a href="{{ route('tipe-pekerjaan.edit', $jobType->id) }}" class="button-secondary px-5 py-2">
+                                    <a href="{{ route('karakteristik-riasec.edit', $jobType->id) }}" class="button-secondary px-5 py-2">
                                         Edit
                                     </a>
-                                    <form method="POST" action="{{ route('tipe-pekerjaan.destroy', $jobType->id) }}">
+                                    <form method="POST" action="{{ route('karakteristik-riasec.destroy', $jobType->id) }}">
                                         @csrf
                                         @method('delete')
                                         <button type="submit" class="button-delete">

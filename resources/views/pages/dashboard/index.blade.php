@@ -37,7 +37,7 @@ $firstName = explode(' ',trim($fullName))[0];
             <div class="flex flex-col gap-y-5">
                 <div>
                     <p class="title-medium">Petunjuk Penggunaan</p>
-                    <span class="text-grey-secondary mb-5">Perhatian petunjuk penggunaan Dashboard ProfesiMu</span>
+                    <span class="text-grey-secondary mb-5">Perhatikan petunjuk penggunaan Dashboard ProfesiMu</span>
                 </div>
                 <div class="text-[15px] flex flex-col gap-y-5 bg-white p-6 rounded-lg">
                     <div>

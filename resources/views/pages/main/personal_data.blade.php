@@ -1,5 +1,5 @@
 <x-home-layout class="bg-backgroundLight text-white h-screen">
-    <section class="h-[376px] mb-10 pt-12 px-24 bg-blue-dark">
+    <section class="h-[376px] mb-10 pt-12 px-24 bg-navy-primary">
         <a href="/" class="flex gap-3">
             <img src="{{ asset('assets/icons/logo_white.svg') }}" alt="Logo ProfesiMu" />
             <p class="text-bold text-xl text-white font-bold">ProfesiMu</p>
@@ -11,7 +11,7 @@
             <div class="card-primary">
                 <div class="flex flex-col items-center">
                     <h2 class="text-2xl font-bold mb-4">Isi Data Diri Kamu</h2>
-                    <div class="h-1.5 w-24 bg-orange-secondary rounded-full"></div>
+                    <div class="h-1.5 w-24 bg-orange rounded-full"></div>
                 </div>
     
                 <form class="mt-8 grid gap-6" autocomplete="off" method="POST" enctype="multipart/form-data">
@@ -39,11 +39,11 @@
                             <label for="gender" class="block mb-2">Jenis Kelamin <span class="text-red">*</span></label>
                             <div class="flex items-center gap-7 pt-2">
                                 <div class="flex items-center">
-                                    <input checked id="gender-men" type="radio" value="Laki-laki" name="gender" class="w-4 h-4 text-orange-secondary focus:ring-orange-secondary bg-gray-100 border-gray-300">
+                                    <input checked id="gender-men" type="radio" value="Laki-laki" name="gender" class="w-4 h-4 text-orange focus:ring-orange bg-gray-100 border-gray-300">
                                     <label for="gender-men" class="ml-2">Laki-laki</label>
                                 </div>
                                 <div class="flex items-center">
-                                    <input id="gender-women" type="radio" value="Perempuan" name="gender" class="w-4 h-4 text-orange-secondary focus:ring-orange-secondary bg-gray-100 border-gray-300">
+                                    <input id="gender-women" type="radio" value="Perempuan" name="gender" class="w-4 h-4 text-orange focus:ring-orange bg-gray-100 border-gray-300">
                                     <label for="gender-women" class="ml-2">Perempuan</label>
                                 </div>
                             </div>
@@ -89,7 +89,7 @@
                         <div class="flex">
                             <label for="experience" class="block mb-2">Pengalaman Kerja atau Belajar Bidang Digital <span class="text-red">*</span></label>
                             <a href="/" onclick="return false" data-modal-target="default-modal" data-modal-toggle="default-modal">
-                                <i icon-name="info" class="w-5 ml-2 text-orange-secondary cursor-pointer"></i>
+                                <i icon-name="info" class="w-5 ml-2 text-orange cursor-pointer"></i>
                             </a>
                         </div>
                         <select id="experience" name="experience" class="input-field">

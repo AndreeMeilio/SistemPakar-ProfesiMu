@@ -4,13 +4,14 @@ use App\Http\Controllers\Auth\ProfileChangePasswordController;
 use App\Http\Controllers\Auth\UserChangePasswordController;
 use App\Http\Controllers\Auth\UserProfileController;
 use App\Http\Controllers\ProfessionController;
+use App\Http\Controllers\PersonalityController;
+
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QuotesController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserPasswordController;
-use App\Http\Controllers\JobTypeController;
 use App\Http\Controllers\PotentialController;
 use App\Http\Controllers\MainPage\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -52,12 +53,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('detail-profil/ubah-kata-sandi/{id}', [ProfileChangePasswordController::class, 'edit'])->name('profile_password.edit');
     Route::put('detail-profil/ubah-kata-sandi', [ProfileChangePasswordController::class, 'update'])->name('profile_password.update');
 
-    Route::get('potensial', [PotentialController::class, 'index'])->name('potensial.index');
-    Route::get('potensial/{tipe_pekerjaan:slug}/{lowongan:slug}', [PotentialController::class, 'detail'])->name('potensial.detail');
-    Route::post('potensial/{tipe_pekerjaan:slug}/{lowongan:slug}', [PotentialController::class, 'update'])->name('potensial.update');
+    // Route::get('potensial', [PotentialController::class, 'index'])->name('potensial.index');
+    // Route::get('potensial/{tipe_pekerjaan:slug}/{lowongan:slug}', [PotentialController::class, 'detail'])->name('potensial.detail');
+    // Route::post('potensial/{tipe_pekerjaan:slug}/{lowongan:slug}', [PotentialController::class, 'update'])->name('potensial.update');
 
     Route::resource('profesi-digital', ProfessionController::class)->parameters(['profesi-digital' => 'id']);
-    Route::resource('tipe-pekerjaan', JobTypeController::class)->parameters(['tipe-pekerjaan' => 'id'])->except(['show']);
+    Route::resource('karakteristik-riasec', PersonalityController::class)->parameters(['karakteristik-riasec' => 'id'])->except(['show']);
     Route::resource('kutipan', QuotesController::class)->parameters(['kutipan' => 'id'])->except(['show']);
     Route::resource('departemen', DepartmentController::class)->parameters(['departemen' => 'id'])->except(['show']);
 

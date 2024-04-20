@@ -5,7 +5,7 @@
             @foreach ($openJobTypes as $openJobType)
                 <div>
                     <div class="flex items-center gap-x-4 mb-3">
-                        <p class="font-medium text-navy text-xl">Daftar Lowongan Kerja</p>
+                        <p class="font-medium text-navy-primary text-xl">Daftar Lowongan Kerja</p>
                         <div id="job_type_bg" class="w-fit bg-[{{ $openJobType->bg_color }}] rounded-lg px-3 py-1.5 max-sm:hidden">
                             <p id="job_type_text" class="text-[{{ $openJobType->text_color }}] text-sm">{{ $openJobType->nama }}</p>
                         </div>
