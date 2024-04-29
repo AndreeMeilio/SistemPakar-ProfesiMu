@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\Support\Str;
 
-
 class UserController extends Controller
 {
     public function index() {
@@ -31,41 +30,33 @@ class UserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ];
 
-        // Custom errors validate
         $customMessages = [
             'required' => ':attribute harus diisi',
             'min' => 'Kata Sandi minimal 8 huruf',
             'confirmed' => 'Ulang Kata Sandi tidak sesuai'
         ];
 
-        // Input image
-        $fileImage = null;
-        if ($request->hasFile('photo')) {
-            $imageName = str_replace(' ', '_', $request->full_name);
-            $extension = $request->file('photo')->guessExtension();
-            $fileImage = $imageName.'.'.$extension;
-            $image = $request->file('photo')->storeAs('public/images/pengguna', $fileImage);
-        }
-
-        $this->validate($request, $rules, $customMessages);
+        $customAttributes = [
+            'email' => 'Email',
+            'full_name' => 'Nama Lengkap',
+            'password' => 'Kata Sandi',
+        ];
+        
+        $this->validate($request, $rules, $customMessages, $customAttributes);
 
         $request['password'] = Hash::make($request->password);
-        $UserEmail = User::get('email')->toArray();
-        $getAllEmail = array_map(array($this, 'getUserEmail'), $UserEmail);
-        
-        // Request value upload to DB
-        $attr = $request->all();
-        $attr['uuid'] = Str::uuid();
-        $attr['photo'] = $fileImage;
+        $userEmail = User::get('email')->toArray();
+        $getAllEmail = array_map(array($this, 'getUserEmail'), $userEmail);
+        $requestValue = $request->all();
 
         if (in_array($request->email, $getAllEmail)) {
-            $flasher->addError('Data pengguna dengan email '.$request['email'].' sudah tersedia');
-            $redirect = redirect(route('pengguna.create'));
+            $flasher->addError('Data admin dengan email '.$request['email'].' sudah tersedia');
+            $redirect = redirect(route('akun-admin.create'));
         }
         else {
-            User::create($attr);
-            $flasher->addSuccess('Data pengguna berhasil ditambahkan');
-            $redirect = redirect(route('pengguna.index'));
+            User::create($requestValue);
+            $flasher->addSuccess('Data admin berhasil ditambahkan');
+            $redirect = redirect(route('akun-admin.index'));
         }
 
         return $redirect;
@@ -87,45 +78,27 @@ class UserController extends Controller
             'required' => ':attribute harus diisi',
         ];
 
-        $this->validate($request, $rules, $customMessages);
+        $customAttributes = [
+            'email' => 'Email',
+            'full_name' => 'Nama Lengkap',
+        ];
+        
+        $this->validate($request, $rules, $customMessages, $customAttributes);
 
-        $pengguna = User::find($request->id);
+        $user = User::find($request->id);
+        $requestValue = $request->all();
+        $user->update($requestValue);
+        $flasher->addSuccess('Data admin berhasil diperbarui');
 
-        // Upload new file
-        $fileImage = null;
-
-        if ($request->file('photo') == null) {
-            $fileImage = $pengguna->photo;
-        }
-        else {
-            if ($request->hasFile('photo')) {
-                $imageName = str_replace(' ', '_', $request->full_name);
-                $extension = $request->file('photo')->guessExtension();
-                $fileImage = $imageName.'.'.$extension;
-                $image = $request->file('photo')->storeAs('public/images/pengguna', $fileImage);
-            }
-        }
-
-        // Request value upload to DB
-        $attr = $request->all();
-        $attr['photo'] = $fileImage;
-        $attr['id_admin_updated'] = Auth::user()->id;
-
-        $pengguna->update($attr);
-
-        $flasher->addSuccess('Data pengguna berhasil diperbarui');
-
-        return to_route('pengguna.index');
+        return to_route('akun-admin.index');
     }
 
     public function destroy(Request $request, NotyfFactory $flasher) {
-        $pengguna = User::find($request->id);
+        $user = User::find($request->id);
+        $user->delete();
+        $flasher->addSuccess('Data admin berhasil dihapus');
 
-        $pengguna->delete();
-
-        $flasher->addSuccess('Data pengguna berhasil dihapus');
-
-        return redirect()->route('pengguna.index');
+        return redirect()->route('akun-admin.index');
     }
 
     private function getUserEmail($user) {

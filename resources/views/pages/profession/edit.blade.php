@@ -23,8 +23,7 @@
             </nav>
         </div>
         <div class="flex flex-col gap-y-5 max-w-[800px] max-sm:w-full">
-            <p class="title-medium">Edit Lowongan Kerja</p>
-            <form autocomplete="off" class="flex flex-col gap-y-6" action="{{ route('profesi-digital.update', $profession->id) }}" method="POST" enctype="multipart/form-data">
+            <form autocomplete="off" class="flex flex-col gap-y-7" action="{{ route('profesi-digital.update', $profession->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="flex flex-col bg-white rounded-xl">
@@ -49,7 +48,7 @@
                         <div class="mb-1">
                             <label for="category" class="block mb-2">Kategori <span class="text-red">*</span></label>
                             <select name="category" id="category" class="input-field">
-                                <option value="">Pilih Kategori</option>
+                                <option value="">Pilih kategori</option>
                                 @foreach ($categories as $categoryKey => $categoryValue)
                                     <option value="{{ $categoryKey }}" {{ $profession->category == $categoryValue ? 'selected' : '' }}>{{ $categoryValue }}</option>
                                 @endforeach
@@ -107,7 +106,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="flex justify-end gap-x-4 mt-1 max-sm:flex-col-reverse gap-y-3">
+                <div class="flex justify-end gap-x-4 max-sm:flex-col-reverse gap-y-3">
                     <a href="{{ route('profesi-digital.index') }}" class="button-danger py-3 px-10">
                         Batal
                     </a>

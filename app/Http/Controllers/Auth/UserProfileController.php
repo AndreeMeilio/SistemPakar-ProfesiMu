@@ -15,5 +15,3 @@ class UserProfileController extends Controller {
         return view('pages.profile.index', $data);
     }
 }
-
-?>

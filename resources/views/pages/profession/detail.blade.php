@@ -23,7 +23,6 @@
             </nav>
         </div>
         <div class="flex flex-col gap-y-5 max-w-[800px] max-sm:w-full">
-            <p class="title-medium">Data Profesi Digital</p>
             <div class="flex flex-col gap-y-5">
                 <div>
                     <p class="mb-1.5 font-medium text-blue-primary">Kode Profesi</p>

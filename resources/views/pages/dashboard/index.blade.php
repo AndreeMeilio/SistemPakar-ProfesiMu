@@ -1,10 +1,10 @@
 @php
 $statistic = array(
     array("title"=>"Total Profesi", "value"=>count($professions), "icon"=>"briefcase"),
-    array("title"=>"Total Karakteristik", "value"=>0, "icon"=>"clipboard-list"),
+    array("title"=>"Total Karakteristik", "value"=>count($characteristics), "icon"=>"clipboard-list"),
     array("title"=>"Total Aturan", "value"=>0, "icon"=>"clipboard-check"),
     array("title"=>"Total Partisipan", "value"=>0, "icon"=>"users"),
-    array("title"=>"Total Admin", "value"=>0, "icon"=>"user"),
+    array("title"=>"Total Admin", "value"=>count($users), "icon"=>"user"),
 );
 
 $fullName = Auth::user()->full_name;

@@ -22,9 +22,9 @@
                 </ol>
             </nav>
         </div>
-        <div class="flex flex-col gap-y-5 max-w-[600px] max-sm:w-full">
+        <div class="flex flex-col gap-y-5 max-w-[800px] max-sm:w-full">
             <p class="title-medium">Ubah Kata Sandi</p>
-            <form action="{{ route('profile_password.update', $pengguna->id) }}" method="POST" autocomplete="off" enctype="multipart/form-data" class="flex flex-col gap-y-6 max-w-3xl">
+            <form class="flex flex-col gap-y-7" action="{{ route('profile_password.update', $user->id) }}" method="POST" autocomplete="off" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="flex flex-col bg-white rounded-xl">
@@ -33,7 +33,7 @@
                     </p>
                     <hr/>
                     <div class="flex flex-col p-5 gap-5">
-                        <input type="hidden" value="{{ $pengguna->id }}" name="id">
+                        <input type="hidden" value="{{ $user->id }}" name="id">
                         <div>
                             <label for="current_password" class="block mb-2">Kata Sandi Lama <span class="text-red">*</span></label>
                             <input name="current_password" type="password" id="current_password" class="input-field" placeholder="Masukkan Kata Sandi Lama">
@@ -63,7 +63,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="flex justify-end gap-x-4 mt-2 max-sm:flex-col-reverse gap-y-3">
+                <div class="flex justify-end gap-x-4 max-sm:flex-col-reverse gap-y-3">
                     <a href="{{ url('detail-profil') }}" class="button-danger py-3 px-10">
                         Batal
                     </a>

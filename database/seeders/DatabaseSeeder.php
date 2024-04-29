@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use App\Models\Personality;
 use App\Models\Profession;
+use App\Models\Characteristic;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
@@ -28,9 +29,34 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Personality::create([
-            'code' => 'REA',
+            'code' => 'R',
             'personality_name' => 'Realistic',
-            'description' => 'Karakteristik tipe Realistic adalah seseorang yang dijuluki sebagai Doers (Pelaku). Suka bekerja dengan objek atau benda-benda. Terpaku dan memiliki fokus yang baik dalam mengerjakan sesuatu yang disukai.',
+            'description' => 'Karakteristik tipe Realistic',
+        ]);
+        Personality::create([
+            'code' => 'I',
+            'personality_name' => 'Investigative',
+            'description' => 'Karakteristik tipe Investigative',
+        ]);
+        Personality::create([
+            'code' => 'A',
+            'personality_name' => 'Artistic',
+            'description' => 'Karakteristik tipe Artistic',
+        ]);
+        Personality::create([
+            'code' => 'S',
+            'personality_name' => 'Social',
+            'description' => 'Karakteristik tipe Social',
+        ]);
+        Personality::create([
+            'code' => 'E',
+            'personality_name' => 'Enterprising',
+            'description' => 'Karakteristik tipe Enterprising',
+        ]);
+        Personality::create([
+            'code' => 'C',
+            'personality_name' => 'Conventional',
+            'description' => 'Karakteristik tipe Conventional',
         ]);
 
         Profession::create([
@@ -41,6 +67,12 @@ class DatabaseSeeder extends Seeder
             'responsibility' => 'Ini tanggungjawab',
             'skill' => 'Ini keahlian',
             'learning_resources' => json_encode(['title' => 'Learning Resource', 'link' => 'https://roadmap.sh'])
+        ]);
+
+        Characteristic::create([
+            'code' => 'KK1',
+            'personality_id' => 1,
+            'characteristic' => 'Memiliki kemampuan mendesain',
         ]);
     }
 }

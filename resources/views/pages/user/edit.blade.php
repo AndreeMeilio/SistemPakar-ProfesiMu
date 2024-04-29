@@ -9,7 +9,7 @@
             <nav class="flex" aria-label="Breadcrumb">
                 <ol class="inline-flex items-center gap-x-2.5">
                     <li>
-                        <a href="{{ route('pengguna.index') }}" class="breadcrumb-link">
+                        <a href="{{ route('akun-admin.index') }}" class="breadcrumb-link">
                             Kelola Pengguna
                         </a>
                     </li>
@@ -22,32 +22,19 @@
                 </ol>
             </nav>
         </div>
-        <div class="flex flex-col gap-y-5 max-w-[600px] max-sm:w-full">
-            <div class="flex flex-col gap-y-1">
-                <p class="title-medium">Edit Pengguna</p>
-                @if ($user->id_admin_updated != null)
-                    <p class="text-grey-secondary">Terakhir diperbarui : {{ ($user->updated_at)->isoFormat('dddd, D MMMM Y') }}</p>
-                    <p class="text-grey-secondary mb-1">Oleh : {{ $user->updatedBy->full_name }}</p>
-                @endif
-            </div>
-            <form autocomplete="off" class="flex flex-col gap-y-6" action="{{ route('pengguna.update', $user->id) }}" method="POST" enctype="multipart/form-data">
+        <div class="flex flex-col gap-y-5 max-w-[800px] max-sm:w-full">
+            <form autocomplete="off" class="flex flex-col gap-y-7" action="{{ route('akun-admin.update', $user->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="flex flex-col bg-white rounded-xl">
-                    <p class="font-medium py-3.5 px-5">
-                        Form Edit Pengguna
-                    </p>
+                    <p class="font-medium py-3.5 px-5">Form Edit Pengguna</p>
                     <hr/>
                     <div class="flex flex-col p-5 gap-5">
-                        <div>
-                            <label for="photo" class="block mb-2">Foto Pengguna</label>
-                            <input name="photo" type="file" id="photo" accept="image/png, image/jpg, image/jpeg" class="input-field">
-                        </div>
                         <div>
                             <label for="full_name" class="block mb-2">Nama Lengkap <span class="text-red">*</span></label>
                             <input name="full_name" value="{{ $user->full_name }}" type="text" id="full_name" class="input-field" placeholder="Masukkan nama pengguna" value="{{ old('full_name') }}">
                             @error('full_name')
-                                <div class="error-message mt-2">
+                                <div class="error-message mt-1">
                                     {{ $message }}
                                 </div>
                             @enderror
@@ -56,24 +43,19 @@
                             <label for="email" class="block mb-2">Email <span class="text-red">*</span></label>
                             <input name="email" value="{{ $user->email }}" type="email" id="email" class="input-field" placeholder="Masukkan email" value="{{ old('email') }}">
                             @error('email')
-                                <div class="error-message mt-2">
+                                <div class="error-message mt-1">
                                     {{ $message }}
                                 </div>
                             @enderror
                         </div>
-                        <div>
-                            <div class="flex justify-between items-center mb-2">
-                                <label for="" class="block">Kata Sandi</label>
-                                <a href="{{ route('user_password.edit', $user->id) }}" class="text-xs text-blue-primary p-1 px-2 font-medium border border-2 rounded-full hover:border-blue-primary">
-                                    Ubah Kata Sandi
-                                </a>
-                            </div>
-                            <input name="" type="text" value="{{ $user->password_confirmation }}" id="" class="bg-white border border-2 border-gray-300 text-sm rounded-lg block w-full p-2.5 opacity-50" placeholder="Masukkan Kata Sandi" @disabled(true)>
+                        <div class="pb-1">
+                            <label for="password" class="block mb-2">Kata Sandi</label>
+                            <input name="password" type="text" value="{{ $user->password_confirmation }}" id="password" class="input-field disabled:bg-[#E9ECF2]" placeholder="Masukkan Kata Sandi" disabled>
                         </div>
                     </div>
                 </div>
-                <div class="flex justify-end gap-x-4 mt-2 max-sm:flex-col-reverse gap-y-3">
-                    <a href="{{ route('pengguna.index') }}" class="button-danger py-3 px-10">
+                <div class="flex justify-end gap-x-4 max-sm:flex-col-reverse gap-y-3">
+                    <a href="{{ route('akun-admin.index') }}" class="button-danger py-3 px-10">
                         Batal
                     </a>
                     <button type="submit" class="button-primary py-3 px-10">

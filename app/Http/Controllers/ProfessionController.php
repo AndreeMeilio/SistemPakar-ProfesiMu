@@ -138,9 +138,8 @@ class ProfessionController extends Controller
         
         $profession->update($requestValue);
         $flasher->addSuccess('Data profesi berhasil diperbarui');    
-        $redirect = redirect(route('profesi-digital.index'));
 
-        return $redirect;
+        return redirect(route('profesi-digital.index'));
     }
 
     public function destroy(Request $request, NotyfFactory $flasher) {

@@ -13,7 +13,7 @@
                 <i icon-name="briefcase"></i>
                 <p class="text-grey-primary">Profesi Digital</p>
             </a>
-            <a href="{{ route('karakteristik-riasec.index') }}" class="item-menu {{ Request::is('karakteristik-riasec') ? 'active' : '' }}">
+            <a href="{{ route('karakteristik-riasec.index') }}" class="item-menu {{ request()->routeIs('karakteristik-riasec*') ? 'active' : '' }}">
                 <i icon-name="clipboard-list"></i>
                 <p class="text-grey-primary">Karakteristik RIASEC</p>
             </a>
@@ -25,7 +25,7 @@
                 <i icon-name="users"></i>
                 <p class="text-grey-primary">Riwayat Partisipan</p>
             </a>
-            <a href="#" class="item-menu {{ Request::is('a') ? 'active' : '' }}">
+            <a href="{{ route('akun-admin.index') }}" class="item-menu {{ request()->routeIs('akun-admin*') ? 'active' : '' }}">
                 <i icon-name="user"></i>
                 <p class="text-grey-primary">Akun Admin</p>
             </a>

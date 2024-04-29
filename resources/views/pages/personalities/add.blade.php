@@ -1,77 +1,71 @@
-<x-app-layout title="Tambah Tipe Pekerjaan">
+<x-app-layout title="Tambah Karakteristik RIASEC">
     <div class="flex flex-col gap-y-10">
         <div>
             <a href="{{ url()->previous() }}" class="button-previous">
                 <i icon-name="arrow-left" class="mr-2 w-5 h-5"></i>
                 <p>Halaman sebelumnya</p>
             </a>
-            <h1 class="title-large mb-4">Tambah Tipe Pekerjaan</h1>
+            <h1 class="title-large mb-4">Tambah Karakteristik RIASEC</h1>
             <nav class="flex" aria-label="Breadcrumb">
                 <ol class="inline-flex items-center gap-x-2.5">
                     <li>
                         <a href="{{ route('karakteristik-riasec.index') }}" class="breadcrumb-link">
-                            Tipe Pekerjaan
+                            Karakteristik RIASEC
                         </a>
                     </li>
                     <li aria-current="page">
                         <div class="breadcrumb-current">
                             <i icon-name="chevron-right" class="mr-2 w-5 h-5"></i>
-                            <span>Tambah Tipe Pekerjaan</span>
+                            <span>Tambah Karakteristik RIASEC</span>
                         </div>
                     </li>
                 </ol>
             </nav>
         </div>
-        <div class="flex flex-col gap-y-5 max-w-[600px] max-sm:w-full">
-            <p class="title-medium">Tambah Tipe Pekerjaan</p>
-            <form autocomplete="off" class="flex flex-col gap-y-6" action="{{ route('karakteristik-riasec.store') }}" method="POST" enctype="multipart/form-data">
+        <div class="flex flex-col gap-y-5 max-w-[800px] max-sm:w-full">
+            <form autocomplete="off" class="flex flex-col gap-y-7" action="{{ route('karakteristik-riasec.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="flex flex-col bg-white rounded-xl">
                     <p class="font-medium py-3.5 px-5">
-                        Form Tambah Tipe Pekerjaan
+                        Form Tambah Karakteristik RIASEC
                     </p>
                     <hr/>
                     <div class="flex flex-col p-5 gap-5">
-                        <div>
-                            <label for="tipe_pekerjaan" class="block mb-2">Tipe Pekerjaan <span class="text-red">*</span></label>
-                            <input name="nama" type="text" id="tipe_pekerjaan" class="input-field" placeholder="Masukkan tipe pekerjaan" value="{{ old('nama') }}">
-                            @error('nama')
-                                <div class="error-message mt-2">
+                        <div class="mb-1">
+                            <label for="code" class="block mb-2">Kode Karakteristik <span class="text-red">*</span></label>
+                            <input name="code" type="text" id="code" class="input-field" placeholder="Masukkan kode karakteristik" value="{{ old('code') }}">
+                            @error('code')
+                                <div class="error-message mt-1">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="mb-1">
+                            <label for="personality_id" class="block mb-2">Tipe Kepribadian <span class="text-red">*</span></label>
+                            <select name="personality_id" id="personality_id" class="input-field">
+                                <option value="">Pilih tipe kepribadian</option>
+                                @foreach ($personalities as $personality)
+                                    <option value="{{ $personality->id }}">{{ $personality->personality_name }}</option>
+                                @endforeach
+                            </select>
+                            @error('personality_id')
+                                <div class="error-message mt-1">
                                     {{ $message }}
                                 </div>
                             @enderror
                         </div>
                         <div>
-                            <label for="bg_color" class="block mb-2">Pilih Warna Latar <span class="text-red">*</span></label>
-                            <div class="input-field h-11 !p-0">
-                                <input name="bg_color" type="color" id="bg_color" class="input-type-color" value="#ABF2FF">
-                            </div>
-                            @error('bg_color')
-                                <div class="error-message mt-2">
+                            <label for="characteristic" class="block mb-2">Karakteristik <span class="text-red">*</span></label>
+                            <textarea name="characteristic" id="characteristic" class="input-field" placeholder="Masukkan karakteristik kepribadian"></textarea>
+                            @error('characteristic')
+                                <div class="error-message mt-1">
                                     {{ $message }}
                                 </div>
                             @enderror
-                        </div>
-                        <div>
-                            <label for="text_color" class="block mb-2">Pilih Warna Teks <span class="text-red">*</span></label>
-                            <div class="input-field h-11 !p-0">
-                                <input name="text_color" type="color" id="text_color" class="input-type-color" value="#037F97">
-                            </div>
-                            @error('text_color')
-                                <div class="error-message mt-2">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                        </div>
-                        <div>
-                            <p class="block mb-2">Pratinjau</p>
-                            <div id="bg_preview" class="w-fit rounded-lg px-3 py-1.5">
-                                <p id="text_preview">Tipe Pekerjaan</p>
-                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="flex justify-end gap-x-4 mt-2 max-sm:flex-col-reverse gap-y-3">
+                <div class="flex justify-end gap-x-4 max-sm:flex-col-reverse gap-y-3">
                     <a href="{{ route('karakteristik-riasec.index') }}" class="button-danger py-3 px-10">
                         Batal
                     </a>

@@ -14,8 +14,9 @@ use Illuminate\Validation\ValidationException;
 class ProfileChangePasswordController extends Controller
 {
     public function edit(Request $request) {
-        $pengguna = User::find($request->id);
-        return view('pages.profile.profile_password', compact('pengguna'));
+        $user = User::find($request->id);
+
+        return view('pages.profile.profile_password', compact('user'));
     }
 
     public function update(Request $request, NotyfFactory $flasher)
@@ -25,7 +26,6 @@ class ProfileChangePasswordController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ];
 
-        // Custom errors validate
         $customMessages = [
             'required' => ':attribute harus diisi',
             'min' => 'Kata Sandi minimal 8 huruf',
@@ -34,16 +34,14 @@ class ProfileChangePasswordController extends Controller
 
         $this->validate($request, $rules, $customMessages);
 
-        $pengguna = User::find($request->id);
+        $user = User::find($request->id);
 
-        if (Hash::check($request->current_password, $pengguna->password)) {
-            $pengguna-> update([
+        if (Hash::check($request->current_password, $user->password)) {
+            $user-> update([
                 'password' => Hash::make($request->password),
                 'password_confirmation' => $request->password_confirmation,
-                'id_admin_updated' => Auth::user()->id,
             ]);
         }
-
         else {
             throw ValidationException::withMessages([
                 'current_password' => 'Kata Sandi Lama yang Anda masukkan salah'
@@ -51,19 +49,11 @@ class ProfileChangePasswordController extends Controller
         }
 
         $getUserID = Auth::user()->id;
-        if((int)$request->id === $getUserID)
-        {
-            // Hapus sesi login /auto logout
-            Auth::guard('web')->logout();
-            $request->session()->invalidate();
-            $request->session()->regenerateToken();
 
+        Auth::guard('web')->logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
 
-            return redirect('/login-admin');
-        }
-        else {
-            $flasher->addSuccess('Kata Sandi berhasil diperbarui');
-            return to_route('pengguna.index');
-        }
+        return redirect('/login-admin');
     }
 }

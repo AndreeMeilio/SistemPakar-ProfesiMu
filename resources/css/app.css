@@ -19,7 +19,7 @@ body {
 }
 
 .title-medium {
-    @apply font-medium text-navy-primary text-xl mb-1;
+    @apply font-medium text-navy-primary text-xl mb-0;
 }
 
 .breadcrumb-link {

@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\TipePekerjaan;
+use App\Models\Personality;
+use App\Models\Characteristic;
 use Illuminate\Support\Facades\Auth;
 use Flasher\Notyf\Prime\NotyfFactory;
 use Illuminate\Http\Request;
@@ -12,81 +13,98 @@ use Illuminate\Support\Str;
 class PersonalityController extends Controller
 {
     public function index() {
-        $jobTypesList = TipePekerjaan::orderBy('nama')->get();
+        $personalities = Personality::all();
+        $characteristics = Characteristic::all();
 
-        return view('pages.personalities.index', compact('jobTypesList'));
+        $data = [
+            'personalities' => $personalities,
+            'characteristics' => $characteristics,
+        ];
+
+        return view('pages.personalities.index', $data);
     }
 
     public function create() {
-        return view('pages.personalities.add');
+        $personalities = Personality::all();
+        
+        return view('pages.personalities.add', compact('personalities'));
     }
 
     public function store(Request $request, NotyfFactory $flasher) {
         $rules = [
-            'nama' => 'required|string',
-            'bg_color' => 'required',
-            'text_color' => 'required',
+            'code' => 'required|string',
+            'personality_id' => 'required|numeric',
+            'characteristic' => 'required|string',
         ];
 
         $customMessages = [
             'required' => ':attribute harus diisi',
         ];
 
-        $this->validate($request, $rules, $customMessages);
+        $customAttributes = [
+            'code' => 'Kode',
+            'personality_id' => 'Tipe Kepribadian',
+            'characteristic' => 'Karakteristik',
+        ];
 
-        // Request value upload to DB
+        $this->validate($request, $rules, $customMessages, $customAttributes);
+
         $requestValue = $request->all();
-        $requestValue['bg_color'] = strtoupper($requestValue['bg_color']);
-        $requestValue['text_color'] = strtoupper($requestValue['text_color']);
-        $requestValue['slug'] = Str::slug($requestValue['nama']);
-        $requestValue['uuid'] = Str::uuid();
 
-        TipePekerjaan::create($requestValue);
-        $flasher->addSuccess('Data tipe pekerjaan berhasil ditambahkan');
+        Characteristic::create($requestValue);
+        $flasher->addSuccess('Data karakteristik berhasil ditambahkan');
 
-        return to_route('tipe-pekerjaan.index');
+        return to_route('karakteristik-riasec.index');
     }
 
     public function edit(Request $request) {
-        $jobType = TipePekerjaan::find($request->id);
+        $characteristic = Characteristic::find($request->id);
+        $personalities = Personality::all();
 
-        return view('pages.personalities.edit', compact('jobType'));
+        $data = [
+            'characteristic' => $characteristic,
+            'personalities' => $personalities,
+        ];
+
+        return view('pages.personalities.edit', $data);
     }
 
     public function update(Request $request, NotyfFactory $flasher) {
         $rules = [
-            'nama' => 'required|string',
-            'bg_color' => 'required',
-            'text_color' => 'required',
+            'code' => 'string',
+            'personality_id' => 'required|numeric',
+            'characteristic' => 'required|string',
         ];
 
         $customMessages = [
             'required' => ':attribute harus diisi',
         ];
 
-        $this->validate($request, $rules, $customMessages);
-        
-        $jobTypes = TipePekerjaan::find($request->id);
+        $customAttributes = [
+            'code' => 'Kode',
+            'personality_id' => 'Tipe Kepribadian',
+            'characteristic' => 'Karakteristik',
+        ];
+
+        $this->validate($request, $rules, $customMessages, $customAttributes);
+
+        $characteristic = Characteristic::find($request->id);
 
         // Request value upload to DB
         $requestValue = $request->all();
-        $requestValue['bg_color'] = strtoupper($requestValue['bg_color']);
-        $requestValue['text_color'] = strtoupper($requestValue['text_color']);
-        $requestValue['slug'] = Str::slug($requestValue['nama']);
-        $requestValue['id_admin_updated'] = Auth::user()->id;
 
-        $jobTypes->update($requestValue);
-        $flasher->addSuccess('Data tipe pekerjaan berhasil diperbarui');
+        $characteristic->update($requestValue);
+        $flasher->addSuccess('Data karakteristik berhasil diperbarui');
 
-        return to_route('tipe-pekerjaan.index');
+        return to_route('karakteristik-riasec.index');
     }
 
     public function destroy(Request $request, NotyfFactory $flasher) {
-        $jobTypes = TipePekerjaan::find($request->id);
+        $characteristic = Characteristic::find($request->id);
 
-        $jobTypes->delete();
-        $flasher->addSuccess('Data tipe pekerjaan berhasil dihapus');
+        $characteristic->delete();
+        $flasher->addSuccess('Data karakteristik berhasil dihapus');
 
-        return to_route('tipe-pekerjaan.index');
+        return to_route('karakteristik-riasec.index');
     }
 }
