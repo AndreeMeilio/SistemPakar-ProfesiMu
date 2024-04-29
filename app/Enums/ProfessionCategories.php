@@ -15,4 +15,16 @@ Enum ProfessionCategories:string
     {
         return array_column(self::cases(), 'value');
     }
+
+    public static function toArray()
+    {
+        return [
+            'DATA' => 'Data',
+            'MARKETING' => 'Marketing',
+            'PRODUCT' => 'Product',
+            'DESIGN' => 'Design',
+            'ENGINEERING' => 'Engineering',
+            'CREATIVE' => 'Creative',
+        ];
+    }
 }

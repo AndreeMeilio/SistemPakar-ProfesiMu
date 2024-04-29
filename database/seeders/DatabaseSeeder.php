@@ -22,7 +22,6 @@ class DatabaseSeeder extends Seeder
         // Seeder Pengguna
         User::create([
             'full_name' => 'Rachma Adzima',
-            'photo' => null,
             'email' => 'rachma@gmail.com',
             'password' => bcrypt('test123'),
             'password_confirmation' => 'test123'

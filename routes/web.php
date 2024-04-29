@@ -44,7 +44,7 @@ Route::get('tes-kepribadian-2', [HomeController::class, 'personality_test'])->na
 Route::get('hasil-tes', [HomeController::class, 'result_test'])->name('result_test');
 
 Route::middleware(['auth'])->group(function () {
-    
+
     // dashboard route
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 

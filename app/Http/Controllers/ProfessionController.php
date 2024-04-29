@@ -4,10 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Profession;
-
-use App\Models\Lowongan;
-use App\Models\TipePekerjaan;
-use App\Models\Departemen;
+use App\Enums\ProfessionCategories;
 
 use Flasher\Notyf\Prime\NotyfFactory;
 use Illuminate\Http\Request;
@@ -24,84 +21,64 @@ class ProfessionController extends Controller
     }
     
     public function show(Request $request) {
-        $job = Lowongan::find($request->id);
-
-        Date::setLocale('id');
-        $start = Date::parse($job->tanggal_dibuka)->format('j F Y');
-        $deadline = Date::parse($job->tanggal_ditutup)->format('j F Y');
+        $profession = Profession::find($request->id);
+        $learningResources = json_decode($profession->learning_resources, true);
 
         $data = [
-            'job' => $job,
-            'start' => $start,
-            'deadline' => $deadline
+            'profession' => $profession,
+            'learningResources' => $learningResources
         ];
 
         return view('pages.profession.detail', $data);
     }
 
     public function create() {
-        $types = TipePekerjaan::all();
-        $departments = Departemen::all();
+        $categories = ProfessionCategories::toArray();
 
-        $data = [
-            'types' => $types,
-            'departments' => $departments,
-        ];
-
-        return view('pages.profession.add', $data);
+        return view('pages.profession.add', compact('categories'));
     }
 
     public function store(Request $request, NotyfFactory $flasher) {
         $rules = [
-            'nama' => 'required|string',
-            'tipe_pekerjaan' => 'required',
-            'deskripsi' => 'required|string',
-            'persyaratan' => 'required|string',
-            'departemen' => 'required',
-            'lokasi' => 'required|string',
-            'tanggal_dibuka' => 'required',
-            'tanggal_ditutup' => 'required',
-            'status_aktif' => 'required',
+            'code' => 'required|string',
+            'profession_name' => 'required|string',
+            'category' => 'required|string',
+            'description' => 'required|string',
+            'responsibility' => 'required|string',
+            'skill' => 'required|string',
+            'learning_title' => 'required|string',
+            'learning_url' => 'required|string',
         ];
 
         $customMessages = [
             'required' => ':attribute harus diisi',
         ];
 
-        $this->validate($request, $rules, $customMessages);
+        $customAttributes = [
+            'code' => 'Kode',
+            'profession_name' => 'Nama Profesi',
+            'category' => 'Kategori',
+            'description' => 'Deskripsi',
+            'responsibility' => 'Tanggung Jawab',
+            'skill' => 'Keterampilan',
+            'learning_title' => 'Judul Pembelajaran',
+            'learning_url' => 'URL Pembelajaran',
+        ];
+        
+        $this->validate($request, $rules, $customMessages, $customAttributes);
 
         $requestValue = $request->all();
-        $requestValue['id_tipe_pekerjaan'] = $request->tipe_pekerjaan;
-        $requestValue['id_departemen'] = $request->departemen;
-        $requestValue['slug'] = Str::slug($requestValue['nama']);
-        $requestValue['uuid'] = Str::uuid();
+        $requestValue['learning_resources'] = json_encode([
+            'title' => $request->learning_title, 
+            'link' => $request->learning_url
+        ]);
 
-        $currentDate = strtotime(date('Y-m-d'));
-        $startDate = strtotime($request->tanggal_dibuka);
-        $endDate = strtotime($request->tanggal_ditutup);
-
-        $checkStartDate = ($startDate > $currentDate) && $request->status_aktif;
-        $checkEndDate = ($endDate < $currentDate) && $request->status_aktif;
-        $checkJobDate = ($endDate < $startDate);
-
-        if ($checkJobDate) {
-            $flasher->addError('Tanggal dibuka dan tanggal ditutup tidak sesuai');
+        if (Profession::where('code', $request->code)->exists()) {
+            $flasher->addError('Kode profesi sudah ada');
             $redirect = redirect(route('profesi-digital.create'));
-        }
-        
-        if ($checkStartDate) {
-            $flasher->addError('Status lowongan tidak sesuai dengan tanggal dibuka');
-            $redirect = redirect(route('profesi-digital.create'));
-        }
-
-        if ($checkEndDate) {
-            $flasher->addError('Status lowongan tidak sesuai dengan tanggal ditutup');
-            $redirect = redirect(route('profesi-digital.create'));
-        }
-        
-        if (!$checkJobDate && !$checkStartDate && !$checkEndDate) {
-            Lowongan::create($requestValue);
-            $flasher->addSuccess('Data lowongan kerja berhasil ditambahkan');
+        } else {
+            Profession::create($requestValue);
+            $flasher->addSuccess('Data profesi berhasil ditambahkan');
             $redirect = redirect(route('profesi-digital.index'));
         }
 
@@ -109,14 +86,14 @@ class ProfessionController extends Controller
     }
 
     public function edit(Request $request) {
-        $job = Lowongan::find($request->id);
-        $types = TipePekerjaan::all();
-        $departments = Departemen::all();
+        $profession = Profession::find($request->id);
+        $categories = ProfessionCategories::toArray();
+        $learningResources = json_decode($profession->learning_resources, true);
 
         $data = [
-            'job' => $job,
-            'types' => $types,
-            'departments' => $departments,
+            'profession' => $profession,
+            'categories' => $categories,
+            'learningResources' => $learningResources
         ];
 
         return view('pages.profession.edit', $data);
@@ -124,68 +101,53 @@ class ProfessionController extends Controller
 
     public function update(Request $request, NotyfFactory $flasher) {
         $rules = [
-            'nama' => 'required|string',
-            'tipe_pekerjaan' => 'required',
-            'deskripsi' => 'required|string',
-            'persyaratan' => 'required|string',
-            'departemen' => 'required',
-            'lokasi' => 'required|string',
-            'tanggal_dibuka' => 'required',
-            'tanggal_ditutup' => 'required',
-            'status_aktif' => 'required',
+            'code' => 'string',
+            'profession_name' => 'required|string',
+            'category' => 'required|string',
+            'description' => 'required|string',
+            'responsibility' => 'required|string',
+            'skill' => 'required|string',
+            'learning_title' => 'required|string',
+            'learning_url' => 'required|string',
         ];
 
         $customMessages = [
             'required' => ':attribute harus diisi',
         ];
 
-        $this->validate($request, $rules, $customMessages);
+        $customAttributes = [
+            'code' => 'Kode',
+            'profession_name' => 'Nama Profesi',
+            'category' => 'Kategori',
+            'description' => 'Deskripsi',
+            'responsibility' => 'Tanggung Jawab',
+            'skill' => 'Keterampilan',
+            'learning_title' => 'Judul Pembelajaran',
+            'learning_url' => 'URL Pembelajaran',
+        ];
 
-        $job = Lowongan::find($request->id);
+        $this->validate($request, $rules, $customMessages, $customAttributes);
+
+        $profession = Profession::find($request->id);
 
         $requestValue = $request->all();
-        $requestValue['id_tipe_pekerjaan'] = $request->tipe_pekerjaan;
-        $requestValue['id_departemen'] = $request->departemen;
-        $requestValue['slug'] = Str::slug($requestValue['nama']);
-        $requestValue['id_admin_updated'] = Auth::user()->id;
-
-        $currentDate = strtotime(date('Y-m-d'));
-        $startDate = strtotime($request->tanggal_dibuka);
-        $endDate = strtotime($request->tanggal_ditutup);
-
-        $checkStartDate = ($startDate > $currentDate) && $request->status_aktif;
-        $checkEndDate = ($endDate < $currentDate) && $request->status_aktif;
-        $checkJobDate = ($endDate < $startDate);
-
-        if ($checkJobDate) {
-            $flasher->addError('Tanggal dibuka dan tanggal ditutup tidak sesuai');
-            $redirect = redirect(route('profesi-digital.edit', $request->id));
-        }
+        $requestValue['learning_resources'] = json_encode([
+            'title' => $request->learning_title, 
+            'link' => $request->learning_url
+        ]);
         
-        if ($checkStartDate) {
-            $flasher->addError('Status lowongan tidak sesuai dengan tanggal dibuka');
-            $redirect = redirect(route('profesi-digital.edit', $request->id));
-        }
+        $profession->update($requestValue);
+        $flasher->addSuccess('Data profesi berhasil diperbarui');    
+        $redirect = redirect(route('profesi-digital.index'));
 
-        if ($checkEndDate) {
-            $flasher->addError('Status lowongan tidak sesuai dengan tanggal ditutup');
-            $redirect = redirect(route('profesi-digital.edit', $request->id));
-        }
-        
-        if (!$checkJobDate && !$checkStartDate && !$checkEndDate) {
-            $job->update($requestValue);
-            $flasher->addSuccess('Data lowongan kerja berhasil diperbarui');    
-            $redirect = redirect(route('profesi-digital.index'));
-        }
-        
         return $redirect;
     }
 
     public function destroy(Request $request, NotyfFactory $flasher) {
-        $job = Lowongan::find($request->id);
+        $profession = Profession::find($request->id);
 
-        $job->delete();
-        $flasher->addSuccess('Data lowongan kerja berhasil dihapus');
+        $profession->delete();
+        $flasher->addSuccess('Data profesi berhasil dihapus');
 
         return to_route('profesi-digital.index');
     }

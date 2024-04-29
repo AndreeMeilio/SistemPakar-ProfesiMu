@@ -1,10 +1,10 @@
 @php
 $statistic = array(
-    array("title"=>"Total Profesi", "value"=>count($applicants), "icon"=>"briefcase"),
-    array("title"=>"Total Karakteristik", "value"=>count($applicants), "icon"=>"clipboard-list"),
-    array("title"=>"Total Aturan", "value"=>count($applicants), "icon"=>"clipboard-check"),
-    array("title"=>"Total Partisipan", "value"=>count($applicants), "icon"=>"users"),
-    array("title"=>"Total Admin", "value"=>count($applicants), "icon"=>"user"),
+    array("title"=>"Total Profesi", "value"=>count($professions), "icon"=>"briefcase"),
+    array("title"=>"Total Karakteristik", "value"=>0, "icon"=>"clipboard-list"),
+    array("title"=>"Total Aturan", "value"=>0, "icon"=>"clipboard-check"),
+    array("title"=>"Total Partisipan", "value"=>0, "icon"=>"users"),
+    array("title"=>"Total Admin", "value"=>0, "icon"=>"user"),
 );
 
 $fullName = Auth::user()->full_name;
@@ -18,7 +18,7 @@ $firstName = explode(' ',trim($fullName))[0];
         <section class="p-6 flex gap-x-9 gap-y-6 bg-white rounded-xl h-fit w-fit sm:items-center max-sm:flex-col-reverse">
             <div>
                 <p class="font-medium mb-1">Hai, {{ $firstName }}!</p>
-                <span class="text-grey-secondary">Ada {{ count($todayApplicants) }} Partisipan baru hari ini.</span>
+                <span class="text-grey-secondary">Ada {{ count($todayParticipants) }} Partisipan baru hari ini.</span>
             </div>
             <img src="{{ asset('assets/images/illust_hand.png') }}" alt="Icon Waving Hand" class="w-14 h-14">
         </section>

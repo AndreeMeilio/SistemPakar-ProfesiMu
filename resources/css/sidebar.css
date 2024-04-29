@@ -21,7 +21,7 @@
 }
 
 .item-menu {
-    @apply flex relative items-center no-underline py-3 px-10 gap-x-[1.125rem] text-grey-secondary hover:text-blue-primary;
+    @apply flex relative items-center no-underline py-3 px-8 gap-x-[1.125rem] text-grey-secondary hover:text-blue-primary;
 }
 
 .item-menu:hover p {

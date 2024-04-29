@@ -30,7 +30,8 @@ td {
 
 .dataTables_wrapper .dataTables_paginate .paginate_button.current,
 .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
-    background: #2579d1 !important;
+    background: #0066c8 !important;
+    border-radius: 50% !important;
     @apply !border-blue-primary !text-white !shadow-none !border-2;
 }
 

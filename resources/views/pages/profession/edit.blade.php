@@ -1,157 +1,118 @@
-<x-app-layout title="Edit Lowongan Kerja">
+<x-app-layout title="Edit Profesi Digital">
     <div class="flex flex-col gap-y-10">
         <div>
             <a href="{{ url()->previous() }}" class="button-previous">
                 <i icon-name="arrow-left" class="mr-2 w-5 h-5"></i>
                 <p>Halaman sebelumnya</p>
             </a>
-            <h1 class="title-large mb-4">Edit Lowongan Kerja</h1>
+            <h1 class="title-large mb-4">Edit Profesi Digital</h1>
             <nav class="flex" aria-label="Breadcrumb">
                 <ol class="inline-flex items-center gap-x-2.5">
                     <li>
                         <a href="{{ route('profesi-digital.index') }}" class="breadcrumb-link">
-                            Lowongan Kerja
+                            Profesi Digital
                         </a>
                     </li>
                     <li aria-current="page">
                         <div class="breadcrumb-current">
                             <i icon-name="chevron-right" class="mr-2 w-5 h-5"></i>
-                            <span>Edit Lowongan</span>
+                            <span>Edit Profesi Digital</span>
                         </div>
                     </li>
                 </ol>
             </nav>
         </div>
-        <div class="flex flex-col gap-y-5 max-w-[600px] max-sm:w-full">
-            <div class="flex flex-col gap-y-1">
-                <p class="title-medium">Edit Lowongan Kerja</p>
-                @if ($job->id_admin_updated != null)
-                    <p class="text-grey-secondary">Terakhir diperbarui : {{ ($job->updated_at)->isoFormat('dddd, D MMMM Y') }}</p>
-                    <p class="text-grey-secondary mb-1">Oleh : {{ $job->updatedBy->full_name }}</p>
-                @endif
-            </div>
-            <form autocomplete="off" class="flex flex-col gap-y-6" action="{{ route('profesi-digital.update', $job->id) }}" method="POST" enctype="multipart/form-data">
+        <div class="flex flex-col gap-y-5 max-w-[800px] max-sm:w-full">
+            <p class="title-medium">Edit Lowongan Kerja</p>
+            <form autocomplete="off" class="flex flex-col gap-y-6" action="{{ route('profesi-digital.update', $profession->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="flex flex-col bg-white rounded-xl">
                     <p class="font-medium py-3.5 px-5">
-                        Form Edit Lowongan Kerja
+                        Form Edit Profesi Digital
                     </p>
                     <hr/>
                     <div class="flex flex-col p-5 gap-5">
-                        <div>
-                            <label for="nama" class="block mb-2">Nama Posisi <span class="text-red">*</span></label>
-                            <input name="nama" type="text" id="nama" class="input-field" placeholder="Masukkan nama posisi" value="{{ $job->nama }}">
-                            @error('nama')
-                                <div class="error-message mt-2">
+                        <div class="mb-1">
+                            <label for="code" class="block mb-2">Kode Profesi <span class="text-red">*</span></label>
+                            <input name="code" type="text" id="code" class="input-field disabled:bg-[#E9ECF2]" placeholder="Masukkan kode profesi" value="{{ $profession->code }}" disabled>
+                        </div>
+                        <div class="mb-1">
+                            <label for="profession_name" class="block mb-2">Nama Profesi <span class="text-red">*</span></label>
+                            <input name="profession_name" type="text" id="profession_name" class="input-field" placeholder="Masukkan nama profesi" value="{{ $profession->profession_name }}">
+                            @error('profession_name')
+                                <div class="error-message mt-1">
                                     {{ $message }}
                                 </div>
                             @enderror
                         </div>
-                        <div>
-                            <label for="tipe_pekerjaan" class="block mb-2">Tipe Pekerjaan <span class="text-red">*</span></label>
-                            <select name="tipe_pekerjaan" id="tipe_pekerjaan" class="input-field">
-                                <option value="">Pilih tipe pekerjaan</option>
-                                @foreach ($types as $type)
-                                    <option value="{{ $type->id }}" {{ $job->id_tipe_pekerjaan == $type->id ? 'selected' : '' }}>{{ $type->nama }}</option>
+                        <div class="mb-1">
+                            <label for="category" class="block mb-2">Kategori <span class="text-red">*</span></label>
+                            <select name="category" id="category" class="input-field">
+                                <option value="">Pilih Kategori</option>
+                                @foreach ($categories as $categoryKey => $categoryValue)
+                                    <option value="{{ $categoryKey }}" {{ $profession->category == $categoryValue ? 'selected' : '' }}>{{ $categoryValue }}</option>
                                 @endforeach
                             </select>
-                            @error('tipe_pekerjaan')
-                                <div class="error-message mt-2">
+                            @error('category')
+                                <div class="error-message mt-1">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="mb-1">
+                            <label for="learning_title" class="block mb-2">Judul Rekomendasi Pembelajaran <span class="text-red">*</span></label>
+                            <input name="learning_title" type="text" id="learning_title" class="input-field" placeholder="Masukkan nama profesi" value="{{ $learningResources['title'] }}">
+                            @error('learning_title')
+                                <div class="error-message mt-1">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="mb-1">
+                            <label for="learning_url" class="block mb-2">URL Rekomendasi Pembelajaran <span class="text-red">*</span></label>
+                            <input name="learning_url" type="text" id="learning_url" class="input-field" placeholder="Masukkan nama profesi" value="{{ $learningResources['link'] }}">
+                            @error('learning_url')
+                                <div class="error-message mt-1">
                                     {{ $message }}
                                 </div>
                             @enderror
                         </div>
                         <div>
                             <label class="block mb-2">Deskripsi <span class="text-red">*</span></label>
-                            <textarea name="deskripsi" id="deskripsi">{!!$job->deskripsi!!}</textarea>
-                            @error('deskripsi')
-                                <div class="error-message mt-2">
+                            <textarea name="description" id="description" class="input-field" placeholder="Masukkan deskripsi profesi">{!!$profession->description!!}</textarea>
+                            @error('description')
+                                <div class="error-message mt-1">
                                     {{ $message }}
                                 </div>
                             @enderror
                         </div>
                         <div>
-                            <label class="block mb-2">Persyaratan <span class="text-red">*</span></label>
-                            <textarea name="persyaratan" id="persyaratan">{!!$job->persyaratan!!}</textarea>
-                            @error('persyaratan')
-                                <div class="error-message mt-2">
+                            <label class="block mb-2">Tanggung Jawab <span class="text-red">*</span></label>
+                            <textarea name="responsibility" id="responsibility" class="input-field" placeholder="Masukkan tanggung jawab profesi">{!!$profession->responsibility!!}</textarea>
+                            @error('responsibility')
+                                <div class="error-message mt-1">
                                     {{ $message }}
                                 </div>
                             @enderror
                         </div>
                         <div>
-                            <label for="departemen" class="block mb-2">Departemen <span class="text-red">*</span></label>
-                            <select name="departemen" id="departemen" class="input-field">
-                                <option value="">Pilih departemen</option>
-                                @foreach ($departments as $departemen)
-                                    <option value="{{ $departemen->id }}" {{ $job->id_departemen == $departemen->id ? 'selected' : '' }}>{{ $departemen->nama }}</option>
-                                @endforeach
-                            </select>
-                            @error('departemen')
-                                <div class="error-message mt-2">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                        </div>
-                        <div>
-                            @php
-                                $lokasi = array('Jakarta Pusat', 'Seluruh Indonesia');
-                            @endphp
-                            <label for="lokasi" class="block mb-2">Lokasi <span class="text-red">*</span></label>
-                            <select name="lokasi" id="lokasi" class="input-field">
-                                <option value="">Pilih lokasi</option>
-                                @foreach ($lokasi as $value)
-                                    <option value="{{ $value }}" {{ $job->lokasi == $value ? 'selected' : '' }}>{{ $value }}</option>
-                                @endforeach
-                            </select>
-                            @error('lokasi')
-                                <div class="error-message mt-2">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                        </div>
-                        <div class="grid grid-cols-2 gap-x-6">
-                            <div>
-                                <label for="tanggal_dibuka" class="block mb-2">Tanggal Dibuka <span class="text-red">*</span></label>
-                                <input name="tanggal_dibuka" type="date" id="tanggal_dibuka" class="input-field" value="{{ $job->tanggal_dibuka }}">
-                                @error('tanggal_dibuka')
-                                    <div class="error-message mt-2">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
-                            <div>
-                                <label for="tanggal_ditutup" class="block mb-2">Tanggal Ditutup <span class="text-red">*</span></label>
-                                <input name="tanggal_ditutup" type="date" id="tanggal_ditutup" class="input-field" value="{{ $job->tanggal_ditutup }}">
-                                @error('tanggal_ditutup')
-                                    <div class="error-message mt-2">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
-                        </div>
-                        <div>
-                            <label for="status_aktif" class="block mb-2">Status Lowongan <span class="text-red">*</span></label>
-                            <select name="status_aktif" id="status_aktif" class="input-field">
-                                <option value="">Pilih status</option>
-                                <option value="0" {{ $job->status_aktif == '0' ? 'selected' : '' }}>Draf</option>
-                                <option value="1" {{ $job->status_aktif == '1' ? 'selected' : '' }}>Dibuka</option>
-                            </select>
-                            @error('status_aktif')
-                                <div class="error-message mt-2">
+                            <label class="block mb-2">Keahlian <span class="text-red">*</span></label>
+                            <textarea name="skill" id="skill" class="input-field" placeholder="Masukkan keahlian profesi">{!!$profession->skill!!}</textarea>
+                            @error('skill')
+                                <div class="error-message mt-1">
                                     {{ $message }}
                                 </div>
                             @enderror
                         </div>
                     </div>
                 </div>
-                <div class="flex justify-end gap-x-4 mt-2 max-sm:flex-col-reverse gap-y-3">
+                <div class="flex justify-end gap-x-4 mt-1 max-sm:flex-col-reverse gap-y-3">
                     <a href="{{ route('profesi-digital.index') }}" class="button-danger py-3 px-10">
                         Batal
                     </a>
                     <button type="submit" class="button-primary py-3 px-10">
-                        Perbarui
+                        Simpan
                     </button>
                 </div>
             </form>

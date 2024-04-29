@@ -8,10 +8,6 @@
             <h1 class="title-large">Detail Profil</h1>
         </div>
         <div class="flex flex-col gap-y-5">
-            <div class="row-span-2">
-                <p class="mb-2 font-medium text-blue-primary">Foto Profil</p>
-                <img src="{{ isset($profile->photo) ? asset('storage/images/pengguna/'.$profile->photo) : asset('assets/images/default_photo.png') }}" alt="Photo Profile" class="w-24 h-24 object-cover rounded-full">
-            </div>
             <div class="flex flex-col gap-6">
                 <div>
                     <p class="mb-1.5 font-medium text-blue-primary">Nama Lengkap</p>

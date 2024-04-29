@@ -1,11 +1,11 @@
-<aside class="sidebar offcanvas max-lg:offcanvas-start max-lg:invisible min-lg:visible fixed h-screen flex flex-col overflow-y-auto justify-between bg-white w-[300px]" tabindex="-1" id="nav-sidebar">
+<aside class="sidebar offcanvas max-lg:offcanvas-start max-lg:invisible min-lg:visible fixed h-screen flex flex-col overflow-y-auto justify-between bg-white w-[280px]" tabindex="-1" id="nav-sidebar">
     <div class="py-7 px-10">
         <h6 class="text-xl font-semibold text-navy-primary">ProfesiMu</h6>
         <p class="text-md text-grey-primary">Dashboard Admin</p>
     </div>
     <div class="flex flex-col gap-y-10 my-3 grow">
         <div class="section-menu">
-            <a href="{{ route('dashboard') }}" class="item-menu {{ Request::is('dashboard') || Request::is('detail-profil') ? 'active' : '' }}">
+            <a href="{{ route('dashboard') }}" class="item-menu {{ Request::is('dashboard') ? 'active' : '' }}">
                 <i icon-name="layout-grid"></i>
                 <p class="text-grey-primary">Beranda</p>
             </a>

@@ -27,7 +27,6 @@ class UserController extends Controller
     {
         $rules = [
             'email' => 'required|email',
-            'photo' => 'required|max:2048',
             'full_name' => 'required|string',
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ];

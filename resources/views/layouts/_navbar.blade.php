@@ -12,15 +12,13 @@ $firstName = explode(' ',trim($fullName))[0];
     </button>
     <div class="dropdown inline-block">
         <button class="py-2 flex items-center gap-x-3 ">
-            @php $photo = Auth::user()->photo @endphp
-            <img src="{{ isset($photo) ? asset('storage/images/pengguna/'.$photo) : asset('assets/images/default_photo.png') }}" alt="Photo Profile" class="w-10 h-10 object-cover rounded-full">
             <div class="flex flex-col text-left">
                 <p class="font-medium">{{ $firstName }}</p>
                 <p class="text-grey-primary text-sm">Admin</p>
             </div>
             <i icon-name="chevron-down"></i>
         </button>
-        <div class="dropdown-menu absolute min-w-[170px] hidden bg-white rounded-xl pt-3">
+        <div class="dropdown-menu hidden">
             <a href="{{ route('detail_profile') }}" class="dropdown-item rounded-t-xl">
                 <i icon-name="user" class="text-grey-primary"></i>
                 <p>Lihat Profil</p>

@@ -63,7 +63,7 @@ body {
 }
 
 .input-field {
-    @apply bg-white border border-gray-300 text-sm rounded-md w-full px-3 py-2.5 focus:ring-orange focus:border-orange;
+    @apply bg-white border border-gray-300 text-sm rounded-md w-full px-3 py-2.5 focus:ring-blue-secondary focus:border-blue-secondary;
 }
 
 .error-message {
@@ -91,6 +91,10 @@ body {
     background-color: #e1f0ff;
 }
 
+[type="search"]:focus {
+    @apply focus:!ring-0 focus:!border-blue-secondary;
+}
+
 /* Alert Notyf */
 .notyf {
     @apply !justify-start !items-center;
@@ -101,8 +105,12 @@ body {
 }
 
 /* Nav Dropdown */
+.dropdown-menu {
+    @apply absolute min-w-[170px] bg-white rounded-xl right-6 mt-1 shadow;
+}
+
 .dropdown-item {
-    @apply flex py-3 px-5 gap-x-3 whitespace-nowrap hover:bg-grey-accent;
+    @apply flex gap-x-3 py-3 px-6 whitespace-nowrap;
 }
 
 /* Scrollbar Sidebar */
