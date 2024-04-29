@@ -19,7 +19,7 @@ $firstName = explode(' ',trim($fullName))[0];
             <i icon-name="chevron-down"></i>
         </button>
         <div class="dropdown-menu hidden">
-            <a href="{{ route('detail_profile') }}" class="dropdown-item rounded-t-xl">
+            <a href="{{ route('profile') }}" class="dropdown-item rounded-t-xl">
                 <i icon-name="user" class="text-grey-primary"></i>
                 <p>Lihat Profil</p>
             </a>

@@ -21,7 +21,7 @@
             <hr>
             <div class="row-span-2 mb-5">
                 <p class="mb-3 font-medium text-blue-primary">Pengaturan Kata Sandi</p>
-                <a href="{{ route('profile_password.edit', $profile->id) }}" class="w-fit py-3 px-6 button-primary">
+                <a href="{{ route('password.edit', $profile->id) }}" class="w-fit py-3 px-6 button-primary">
                     Ubah Kata Sandi
                     <i icon-name="arrow-right" class="ml-2"></i>
                 </a>

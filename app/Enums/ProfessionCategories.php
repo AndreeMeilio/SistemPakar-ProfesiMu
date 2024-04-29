@@ -18,13 +18,8 @@ Enum ProfessionCategories:string
 
     public static function toArray()
     {
-        return [
-            'DATA' => 'Data',
-            'MARKETING' => 'Marketing',
-            'PRODUCT' => 'Product',
-            'DESIGN' => 'Design',
-            'ENGINEERING' => 'Engineering',
-            'CREATIVE' => 'Creative',
-        ];
+        return array_map(function ($item) {
+            return $item->value;
+        }, self::cases());
     }
 }

@@ -4,6 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use App\Enums\Gender;
+use App\Enums\DigitalExperiences;
 
 return new class extends Migration
 {
@@ -21,10 +22,11 @@ return new class extends Migration
             $table->integer('age');
             $table->string('study_program', 100);
             $table->string('education', 100);
-            $table->string('experience', 100);
+            // $table->string('experience', 100);
+            $table->enum('experience', DigitalExperiences::databaseEnum());
             $table->text('goal');
-            $table->integer('personality_id');
-            $table->integer('profession_id');
+            $table->integer('personality_id')->nullable();
+            $table->integer('profession_id')->nullable();
             $table->integer('star_rating')->nullable();
             $table->text('feedback')->nullable();
             $table->timestamps();

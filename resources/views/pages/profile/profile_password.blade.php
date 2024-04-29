@@ -24,7 +24,7 @@
         </div>
         <div class="flex flex-col gap-y-5 max-w-[800px] max-sm:w-full">
             <p class="title-medium">Ubah Kata Sandi</p>
-            <form class="flex flex-col gap-y-7" action="{{ route('profile_password.update', $user->id) }}" method="POST" autocomplete="off" enctype="multipart/form-data">
+            <form class="flex flex-col gap-y-7" action="{{ route('password.update', $user->id) }}" method="POST" autocomplete="off" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="flex flex-col bg-white rounded-xl">

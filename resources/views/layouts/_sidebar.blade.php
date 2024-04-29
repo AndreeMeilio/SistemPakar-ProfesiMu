@@ -21,7 +21,7 @@
                 <i icon-name="clipboard-check"></i>
                 <p class="text-grey-primary">Aturan Relasi</p>
             </a>
-            <a href="#" class="item-menu {{ Request::is('a') ? 'active' : '' }}">
+            <a href="{{ route('riwayat-partisipan.index') }}" class="item-menu {{ request()->routeIs('riwayat-partisipan*') ? 'active' : '' }}">
                 <i icon-name="users"></i>
                 <p class="text-grey-primary">Riwayat Partisipan</p>
             </a>

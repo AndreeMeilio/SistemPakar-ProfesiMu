@@ -16,7 +16,7 @@
                     <li aria-current="page">
                         <div class="breadcrumb-current">
                             <i icon-name="chevron-right" class="mr-2 w-5 h-5"></i>
-                            <span>Tambah Profesi Digital</span>
+                            <span>Tambah Profesi</span>
                         </div>
                     </li>
                 </ol>
@@ -53,8 +53,8 @@
                             <label for="category" class="block mb-2">Kategori <span class="text-red">*</span></label>
                             <select name="category" id="category" class="input-field">
                                 <option value="">Pilih kategori</option>
-                                @foreach ($categories as $categoryKey => $categoryValue)
-                                    <option value="{{ $categoryKey }}">{{ $categoryValue }}</option>
+                                @foreach ($categories as $category)
+                                    <option value="{{ $category }}">{{ $category }}</option>
                                 @endforeach
                             </select>
                             @error('category')

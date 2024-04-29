@@ -2254,6 +2254,10 @@ input[type="number"] {
     width: 500px;
   }
 
+  .lg\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .lg\:rounded-3xl {
     border-radius: 1.5rem;
   }

@@ -13,13 +13,12 @@
                     <h2 class="text-2xl font-bold mb-4">Isi Data Diri Kamu</h2>
                     <div class="h-1.5 w-24 bg-orange rounded-full"></div>
                 </div>
-    
-                <form class="mt-8 grid gap-6" autocomplete="off" method="POST" enctype="multipart/form-data">
+                <form class="mt-8 grid gap-6" action="{{ route('submit_data') }}" autocomplete="off" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div>
-                        <label for="fullname" class="block mb-2">Nama Lengkap <span class="text-red">*</span></label>
-                        <input name="fullname" type="text" id="fullname" class="input-field" placeholder="Masukkan nama lengkap kamu" value="{{ old('fullname') }}">
-                        @error('fullname')
+                        <label for="participant_name" class="block mb-2">Nama Lengkap <span class="text-red">*</span></label>
+                        <input name="participant_name" type="text" id="participant_name" class="input-field" placeholder="Masukkan nama lengkap kamu" value="{{ old('participant_name') }}">
+                        @error('participant_name')
                             <div class="error-message mt-2">
                                 {{ $message }}
                             </div>
@@ -28,7 +27,7 @@
                     <div class="flex gap-10">
                         <div class="w-full">
                             <label for="age" class="block mb-2">Usia (tahun) <span class="text-red">*</span></label>
-                            <input name="age" type="text" id="age" class="input-field" placeholder="Pilih pendidikan terakhir" value="{{ old('age') }}">
+                            <input name="age" type="number" id="age" class="input-field" placeholder="Masukkan usia saat ini" value="{{ old('age') }}">
                             @error('age')
                                 <div class="error-message mt-2">
                                     {{ $message }}
@@ -39,12 +38,12 @@
                             <label for="gender" class="block mb-2">Jenis Kelamin <span class="text-red">*</span></label>
                             <div class="flex items-center gap-7 pt-2">
                                 <div class="flex items-center">
-                                    <input checked id="gender-men" type="radio" value="Laki-laki" name="gender" class="w-4 h-4 text-orange focus:ring-orange bg-gray-100 border-gray-300">
-                                    <label for="gender-men" class="ml-2">Laki-laki</label>
+                                    <input checked id="gender-male" type="radio" value="Laki-laki" name="gender" class="w-4 h-4 text-orange focus:ring-orange bg-gray-100 border-gray-300">
+                                    <label for="gender-male" class="ml-2">Laki-laki</label>
                                 </div>
                                 <div class="flex items-center">
-                                    <input id="gender-women" type="radio" value="Perempuan" name="gender" class="w-4 h-4 text-orange focus:ring-orange bg-gray-100 border-gray-300">
-                                    <label for="gender-women" class="ml-2">Perempuan</label>
+                                    <input id="gender-female" type="radio" value="Perempuan" name="gender" class="w-4 h-4 text-orange focus:ring-orange bg-gray-100 border-gray-300">
+                                    <label for="gender-female" class="ml-2">Perempuan</label>
                                 </div>
                             </div>
                             @error('gender')
@@ -58,7 +57,7 @@
                         <div class="w-full">
                             <label for="education" class="block mb-2">Pendidikan Terakhir <span class="text-red">*</span></label>
                             <select id="education" name="education" class="input-field">
-                                <option selected>Pilih pendidikan terakhir</option>
+                                <option value="">Pilih pendidikan terakhir</option>
                                 <option value="SMP">SMP/Sederajat</option>
                                 <option value="SMA">SMA/SMK/Sederajat</option>
                                 <option value="D1">Diploma I (D1)</option>
@@ -76,9 +75,9 @@
                             @enderror
                         </div>
                         <div class="w-full">
-                            <label for="major" class="block mb-2">Jurusan atau Bidang Studi <span class="text-red">*</span></label>
-                            <input name="major" type="text" id="major" class="input-field" placeholder="Masukkan jurusan atau bidang studi" value="{{ old('major') }}">
-                            @error('major')
+                            <label for="study_program" class="block mb-2">Jurusan atau Bidang Studi <span class="text-red">*</span></label>
+                            <input name="study_program" type="text" id="study_program" class="input-field" placeholder="Masukkan jurusan atau bidang studi" value="{{ old('study_program') }}">
+                            @error('study_program')
                                 <div class="error-message mt-2">
                                     {{ $message }}
                                 </div>
@@ -93,11 +92,10 @@
                             </a>
                         </div>
                         <select id="experience" name="experience" class="input-field">
-                            <option selected>Pilih pengalaman kerja atau belajar mu</option>
-                            <option value="Belajar mandiri">Ya, saya memiliki pengalaman belajar mandiri di bidang digital</option>
-                            <option value="Pelatihan digital">Ya, saya pernah mengikuti kursus atau pelatihan di bidang digital</option>
-                            <option value="Bekerja">Ya, saya pernah bekerja atau magang di bidang digital</option>
-                            <option value="Non pengalaman">Tidak, saya belum memiliki pengalaman belajar, kursus, atau bekerja di bidang digital</option>
+                            <option value="">Pilih pengalaman kerja atau belajar mu</option>
+                            @foreach ($experiences as $experience)
+                                <option value="{{ $experience }}">{{ $experience }}</option>
+                            @endforeach
                         </select>
                         @error('experience')
                             <div class="error-message mt-2">
@@ -111,10 +109,10 @@
                     </div>
 
                     <div class="flex justify-center">
-                        <a class="button-orange mt-4 w-fit" href="{{ route('introduction_test') }}">
+                        <button type="submit" class="button-orange mt-4 w-fit">
                             Lanjut
                             <i icon-name="chevron-right" class="w-5 ml-1"></i>
-                        </a>
+                        </button>
                     </div>
                 </form>
             </div>

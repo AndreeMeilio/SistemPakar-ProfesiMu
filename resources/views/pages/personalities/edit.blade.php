@@ -16,7 +16,7 @@
                     <li aria-current="page">
                         <div class="breadcrumb-current">
                             <i icon-name="chevron-right" class="mr-2 w-5 h-5"></i>
-                            <span>Edit Karakteristik RIASEC</span>
+                            <span>Edit Karakteristik</span>
                         </div>
                     </li>
                 </ol>

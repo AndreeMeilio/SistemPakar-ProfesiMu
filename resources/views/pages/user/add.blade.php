@@ -1,22 +1,22 @@
-<x-app-layout title="Tambah Pengguna">
+<x-app-layout title="Tambah Akun Admin">
     <div class="flex flex-col gap-y-10">
         <div>
             <a href="{{ url()->previous() }}" class="button-previous">
                 <i icon-name="arrow-left" class="mr-2 w-5 h-5"></i>
                 <p>Halaman sebelumnya</p>
             </a>
-            <h1 class="title-large mb-4">Tambah Pengguna</h1>
+            <h1 class="title-large mb-4">Tambah Akun Admin</h1>
             <nav class="flex" aria-label="Breadcrumb">
                 <ol class="inline-flex items-center gap-x-2.5">
                     <li>
                         <a href="{{ route('akun-admin.index') }}" class="breadcrumb-link">
-                            Kelola Pengguna
+                            Kelola Akun Admin
                         </a>
                     </li>
                     <li aria-current="page">
                         <div class="breadcrumb-current">
                             <i icon-name="chevron-right" class="mr-2 w-5 h-5"></i>
-                            <span>Tambah Pengguna</span>
+                            <span>Tambah Admin</span>
                         </div>
                     </li>
                 </ol>
@@ -26,12 +26,12 @@
             <form autocomplete="off" class="flex flex-col gap-y-7" action="{{ route('akun-admin.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="flex flex-col bg-white rounded-xl">
-                    <p class="font-medium py-3.5 px-5">Form Tambah Pengguna</p>
+                    <p class="font-medium py-3.5 px-5">Form Tambah Akun Admin</p>
                     <hr/>
                     <div class="flex flex-col p-5 gap-5">
                         <div>
                             <label for="full_name" class="block mb-2">Nama Lengkap <span class="text-red">*</span></label>
-                            <input name="full_name" type="text" id="full_name" class="input-field" placeholder="Masukkan nama pengguna" value="{{ old('full_name') }}">
+                            <input name="full_name" type="text" id="full_name" class="input-field" placeholder="Masukkan nama admin" value="{{ old('full_name') }}">
                             @error('full_name')
                                 <div class="error-message mt-1">
                                     {{ $message }}

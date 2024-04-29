@@ -16,7 +16,7 @@ class ProfileChangePasswordController extends Controller
     public function edit(Request $request) {
         $user = User::find($request->id);
 
-        return view('pages.profile.profile_password', compact('user'));
+        return view('pages.profile.password', compact('user'));
     }
 
     public function update(Request $request, NotyfFactory $flasher)
