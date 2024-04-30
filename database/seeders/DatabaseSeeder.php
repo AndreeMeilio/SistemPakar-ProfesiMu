@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Personality;
 use App\Models\Profession;
 use App\Models\Characteristic;
+use App\Models\Rule;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
@@ -73,6 +74,16 @@ class DatabaseSeeder extends Seeder
             'code' => 'KK1',
             'personality_id' => 1,
             'characteristic' => 'Memiliki kemampuan mendesain',
+        ]);
+
+        Rule::create([
+            'code' => 'R1',
+            'personality_id' => 1,
+            'characteristic_id' => 1,
+            'profession_id' => 1,
+            'personality_code' => 1,
+            'characteristic_code' => 1,
+            'profession_code' => 1,
         ]);
     }
 }

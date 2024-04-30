@@ -1,9 +1,9 @@
-<x-app-layout title="Kelola Pengguna">
+<x-app-layout title="Kelola Akun Admin">
     <div class="flex flex-col gap-y-10">
-        <h1 class="title-large">Kelola Pengguna</h1>
+        <h1 class="title-large">Kelola Akun Admin</h1>
         <div class="flex flex-col gap-y-5">
             <div class="flex justify-between gap-5 max-sm:flex-col sm:items-center">
-                <p class="title-medium">Daftar Pengguna</p>
+                <p class="title-medium">Daftar Akun Admin</p>
                 <a href="{{ route('akun-admin.create') }}" class="button-primary justify-center px-6 py-3">
                     <div class="flex gap-x-2">
                         <i icon-name="plus"></i>
@@ -17,10 +17,10 @@
                     <table id="table_datatables" class="display" cellspacing="0" width="100%">
                         <thead>
                             <tr>
-                            <th>No.</th>
-                            <th>Nama Lengkap</th>
-                            <th>Email</th>
-                            <th class="!text-center">Aksi</th>
+                                <th>No.</th>
+                                <th>Nama Lengkap</th>
+                                <th>Email</th>
+                                <th class="!text-center">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>

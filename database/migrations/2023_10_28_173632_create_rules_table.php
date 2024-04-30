@@ -16,8 +16,10 @@ return new class extends Migration
         Schema::create('rules', function (Blueprint $table) {
             $table->id();
             $table->string('code', 100);
+            $table->integer('personality_id');
             $table->integer('characteristic_id');
             $table->integer('profession_id');
+            $table->string('personality_code', 100);
             $table->string('characteristic_code', 100);
             $table->string('profession_code', 100);
             $table->timestamps();

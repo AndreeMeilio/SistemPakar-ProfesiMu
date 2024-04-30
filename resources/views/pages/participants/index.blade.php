@@ -8,12 +8,12 @@
                     <table id="table_datatables" class="display" cellspacing="0" width="100%">
                         <thead>
                             <tr>
-                            <th>No.</th>
-                            <th>Nama Partisipan</th>
-                            <th>Usia</th>
-                            <th>Hasil Kepribadian</th>
-                            <th>Hasil Profesi Digital</th>
-                            <th class="!text-center">Aksi</th>
+                                <th>No.</th>
+                                <th>Nama Partisipan</th>
+                                <th>Usia</th>
+                                <th>Hasil Kepribadian</th>
+                                <th>Hasil Profesi Digital</th>
+                                <th class="!text-center">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>

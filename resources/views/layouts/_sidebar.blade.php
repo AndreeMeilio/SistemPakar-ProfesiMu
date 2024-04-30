@@ -17,7 +17,7 @@
                 <i icon-name="clipboard-list"></i>
                 <p class="text-grey-primary">Karakteristik RIASEC</p>
             </a>
-            <a href="#" class="item-menu {{ Request::is('a') ? 'active' : '' }}">
+            <a href="{{ route('aturan-relasi.index') }}" class="item-menu {{ request()->routeIs('aturan-relasi*') ? 'active' : '' }}">
                 <i icon-name="clipboard-check"></i>
                 <p class="text-grey-primary">Aturan Relasi</p>
             </a>

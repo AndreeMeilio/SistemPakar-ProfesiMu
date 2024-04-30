@@ -9,6 +9,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfessionController;
 use App\Http\Controllers\PersonalityController;
 use App\Http\Controllers\ParticipantController;
+use App\Http\Controllers\RuleController;
 use App\Http\Controllers\UserController;
 
 use Illuminate\Support\Facades\Route;
@@ -40,6 +41,8 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('profesi-digital', ProfessionController::class)->parameters(['profesi-digital' => 'id']);
 
     Route::resource('karakteristik-riasec', PersonalityController::class)->parameters(['karakteristik-riasec' => 'id'])->except(['show']);
+
+    Route::resource('aturan-relasi', RuleController::class)->parameters(['aturan-relasi' => 'id']);
 
     Route::resource('riwayat-partisipan', ParticipantController::class)->parameters(['riwayat-partisipan' => 'id'])->except(['store', 'create', 'edit', 'update']);
 

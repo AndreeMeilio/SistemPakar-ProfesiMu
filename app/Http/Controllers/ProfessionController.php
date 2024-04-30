@@ -5,12 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Profession;
 use App\Enums\ProfessionCategories;
-
 use Flasher\Notyf\Prime\NotyfFactory;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Auth;
-use Jenssegers\Date\Date;
 
 class ProfessionController extends Controller
 {

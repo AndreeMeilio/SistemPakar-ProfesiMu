@@ -1,6 +1,6 @@
-<x-app-layout title="Karakteristik RIASEC">
+<x-app-layout title="Kelola Karakteristik RIASEC">
     <div class="flex flex-col gap-y-10">
-        <h1 class="title-large">Karakteristik RIASEC</h1>
+        <h1 class="title-large">Kelola Karakteristik RIASEC</h1>
         <div class="flex flex-col gap-y-5">
             <div class="flex flex-col gap-y-5 mb-5">
                 <p class="font-medium text-navy text-xl">Daftar Tipe Kepribadian RIASEC</p>
@@ -49,10 +49,10 @@
                     <table id="table_datatables" class="display" cellspacing="0" width="100%">
                         <thead>
                             <tr>
-                            <th>Kode</th>
-                            <th>Tipe Kepribadian</th>
-                            <th>Karakteristik</th>
-                            <th class="!text-center">Aksi</th>
+                                <th>Kode</th>
+                                <th>Tipe Kepribadian</th>
+                                <th>Karakteristik</th>
+                                <th class="!text-center">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>

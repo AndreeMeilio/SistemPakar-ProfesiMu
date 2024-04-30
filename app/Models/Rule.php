@@ -13,11 +13,17 @@ class Rule extends Model
 
     protected $fillable = [
         'code', 
-        'characteristic_id', 
+        'personality_id',
+        'characteristic_id',
         'profession_id', 
+        'personality_code',
         'characteristic_code', 
         'profession_code', 
     ];
+
+    public function personality() {
+        return $this->belongsTo(Personality::class, 'personality_id');
+    }
 
     public function characteristic() {
         return $this->belongsTo(Characteristic::class, 'characteristic_id');
