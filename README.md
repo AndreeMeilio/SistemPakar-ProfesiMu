@@ -1,66 +1,43 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+## Tentang Sistem Pakar Rekomendasi Profesi Digital
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+ProfesiMu adalah platform yang menyediakan tes minat karir dan rekomendasi profesi di bidang digital. Jika kamu tertarik atau sudah berada dalam dunia teknologi digital, tetapi masih bingung tentang arah karir yang ingin diambil, ProfesiMu hadir untuk membantu mu.
 
-## About Laravel
+Dengan bantuan pakar bidang IT dan Psikologi, tes minat karir kami dikembangkan berdasarkan teori kepribadian RIASEC yang terbukti efektif dalam menggali potensi seseorang berdasarkan karakteristik individu. Temukan pilihan karir dan profesi di bidang digital yang sesuai dengan minat dan kepribadian kamu melalui ProfesiMu!
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### User
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+![image](https://github.com/rachmadzii/SistemPakar-ProfesiMu/assets/25424598/5291754a-fce0-4190-aa4a-92ec6abc2430)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+![image](https://github.com/rachmadzii/SistemPakar-ProfesiMu/assets/25424598/9c533005-120d-472b-a12e-1ef038041d3b)
 
-## Learning Laravel
+![image](https://github.com/rachmadzii/SistemPakar-ProfesiMu/assets/25424598/07ae0a3b-8aae-446d-bb5f-05e497aaeba1)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+![image](https://github.com/rachmadzii/SistemPakar-ProfesiMu/assets/25424598/204b390e-c6c9-4127-a799-671bc349a0c7)
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+![image](https://github.com/rachmadzii/SistemPakar-ProfesiMu/assets/25424598/e9528e1d-598c-41a7-a5ef-d2a33b63fd9e)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+![image](https://github.com/rachmadzii/SistemPakar-ProfesiMu/assets/25424598/851d6d0b-f6f0-4f3f-a37a-0cef9648dd3f)
 
-## Laravel Sponsors
+![image](https://github.com/rachmadzii/SistemPakar-ProfesiMu/assets/25424598/ad555c73-1db5-40a8-a309-e143fd7e98a4)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
 
-### Premium Partners
+### Admin
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+![image](https://github.com/rachmadzii/SistemPakar-ProfesiMu/assets/25424598/8e67c613-fe64-43ab-81e9-c856c15f681f)
 
-## Contributing
+![image](https://github.com/rachmadzii/SistemPakar-ProfesiMu/assets/25424598/5fc4e2c3-2352-4e87-acaa-e3e5de916bfa)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+![image](https://github.com/rachmadzii/SistemPakar-ProfesiMu/assets/25424598/fe3dbcf3-642d-45a1-9e1c-96eab7f88941)
 
-## Code of Conduct
+![image](https://github.com/rachmadzii/SistemPakar-ProfesiMu/assets/25424598/853e048d-f5c5-4d03-b49e-bcbd1757fe63)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+![image](https://github.com/rachmadzii/SistemPakar-ProfesiMu/assets/25424598/1b78f4a2-ce6b-428e-9afb-c412577752d0)
 
-## Security Vulnerabilities
+![image](https://github.com/rachmadzii/SistemPakar-ProfesiMu/assets/25424598/ea51470e-aab8-4755-a226-fc517df038ca)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+![image](https://github.com/rachmadzii/SistemPakar-ProfesiMu/assets/25424598/cf4aa073-5e7f-4e66-b3a7-81b33b1e33d9)
 
-## License
+![image](https://github.com/rachmadzii/SistemPakar-ProfesiMu/assets/25424598/5890b32d-40b3-4d27-ac15-8eb0df8d1582)
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
