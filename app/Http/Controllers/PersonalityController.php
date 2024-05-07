@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 class PersonalityController extends Controller
 {
     public function index() {
-        $personalities = Personality::all();
+        $personalities = Personality::orderBy('id', 'asc')->get();
         $characteristics = Characteristic::all();
 
         $data = [

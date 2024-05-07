@@ -52,7 +52,7 @@
                 </div>
                 <div>
                     <p class="mb-1.5 font-medium text-blue-primary">Tujuan Mengikuti Tes</p>
-                    <p class="font-medium">{{ $participant->goal }}</p>
+                    <p class="font-medium">{{ $participant->goal ?? '-' }}</p>
                 </div>
             </div>
 

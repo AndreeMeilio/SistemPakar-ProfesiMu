@@ -4,29 +4,35 @@
         <div class="flex flex-col gap-y-5">
             <div class="flex flex-col gap-y-5 mb-5">
                 <p class="font-medium text-navy text-xl">Daftar Tipe Kepribadian RIASEC</p>
-                <div class="overflow-x-auto relative rounded-lg max-w-sm">
+                <div class="overflow-x-auto relative rounded-lg">
                     <table class="w-full">
                         <caption class="p-4 font-medium text-left bg-white">
                             Tabel Tipe Kepribadian RIASEC
                         </caption>
                         <thead class="bg-blue-accent font-semibold text-navy">
                             <tr>
-                                <td class="py-3 px-4">
+                                <td class="!py-3 !px-8">
+                                    Kode
+                                </td>
+                                <td class="!py-3 !px-8">
                                     Tipe
                                 </td>
-                                <td class="py-3 px-4 text-center">
-                                    Kode
+                                <td class="!py-3 !px-8">
+                                    Deskripsi
                                 </td>
                             </tr>
                         </thead>
                         <tbody class="bg-white">
                             @foreach ($personalities as $personality)
-                                <tr class="border-b border-grey-stroke">
-                                    <td class="p-4 italic">
+                                <tr class="border-t border-grey-stroke">
+                                    <td class="!px-8">
+                                        {{ $personality->code }}
+                                    </td>
+                                    <td class="!px-8 italic">
                                         {{ $personality->personality_name }}
                                     </td>
-                                    <td class="p-4 text-center">
-                                        {{ $personality->code }}
+                                    <td class="!px-8">
+                                        {{ $personality->description }}
                                     </td>
                                 </tr>
                             @endforeach

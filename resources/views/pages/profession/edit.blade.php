@@ -77,6 +77,15 @@
                                 </div>
                             @enderror
                         </div>
+                        <div class="mb-1">
+                            <label for="caption" class="block mb-2">Caption <span class="text-red">*</span></label>
+                            <input name="caption" type="text" id="caption" class="input-field" placeholder="Masukkan 3 keahlian utama terkait profesi ini" value="{{ $profession->caption }}">
+                            @error('caption')
+                                <div class="error-message mt-1">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
                         <div>
                             <label class="block mb-2">Deskripsi <span class="text-red">*</span></label>
                             <textarea name="description" id="description" class="input-field" placeholder="Masukkan deskripsi profesi">{!!$profession->description!!}</textarea>

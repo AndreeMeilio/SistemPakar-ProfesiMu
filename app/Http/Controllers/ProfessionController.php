@@ -44,6 +44,7 @@ class ProfessionController extends Controller
             'skill' => 'required|string',
             'learning_title' => 'required|string',
             'learning_url' => 'required|string',
+            'caption' => 'required|string',
         ];
 
         $customMessages = [
@@ -105,6 +106,7 @@ class ProfessionController extends Controller
             'skill' => 'required|string',
             'learning_title' => 'required|string',
             'learning_url' => 'required|string',
+            'caption' => 'required|string',
         ];
 
         $customMessages = [
@@ -133,7 +135,7 @@ class ProfessionController extends Controller
         ]);
         
         $profession->update($requestValue);
-        $flasher->addSuccess('Data profesi berhasil diperbarui');    
+        $flasher->addSuccess('Data profesi berhasil diperbarui');
 
         return redirect(route('profesi-digital.index'));
     }

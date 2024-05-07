@@ -37,6 +37,10 @@
                     <p class="font-medium">{{ $profession->category }}</p>
                 </div>
                 <div>
+                    <p class="mb-1.5 font-medium text-blue-primary">Caption</p>
+                    <p class="font-medium">{{ $profession->caption }}</p>
+                </div>
+                <div>
                     <p class="mb-1.5 font-medium text-blue-primary">Deskripsi</p>
                     <p class="font-medium">{{ $profession->description }}</p>
                 </div>

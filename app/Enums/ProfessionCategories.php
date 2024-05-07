@@ -11,15 +11,8 @@ Enum ProfessionCategories:string
     case ENGINEERING = 'Engineering';
     case CREATIVE = 'Creative';
 
-    public static function databaseEnum()
-    {
-        return array_column(self::cases(), 'value');
-    }
-
     public static function toArray()
     {
-        return array_map(function ($item) {
-            return $item->value;
-        }, self::cases());
+        return array_column(self::cases(), 'value');
     }
 }

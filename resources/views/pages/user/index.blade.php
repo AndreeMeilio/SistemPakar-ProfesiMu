@@ -30,18 +30,18 @@
                                 <td>{{ $user->full_name }}</td>
                                 <td>{{ $user->email }}</td>
                                 <td>
-                                <div class="flex gap-x-3 justify-center">
-                                    <a href="{{ route('akun-admin.edit', $user->id) }}" class="button-secondary px-5 py-2">
-                                        Edit
-                                    </a>
-                                    <form method="POST" action="{{ route('akun-admin.destroy', $user->id) }}">
-                                        @csrf
-                                        @method('delete')
-                                        <button type="submit" class="button-delete">
-                                            <i icon-name="trash-2"></i>
-                                        </button>
-                                    </form>
-                                </div>
+                                    <div class="flex gap-x-3 justify-center">
+                                        <a href="{{ route('akun-admin.edit', $user->id) }}" class="button-secondary px-5 py-2">
+                                            Edit
+                                        </a>
+                                        <form method="POST" action="{{ route('akun-admin.destroy', $user->id) }}">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="button-delete">
+                                                <i icon-name="trash-2"></i>
+                                            </button>
+                                        </form>
+                                    </div>
                                 </td>
                             </tr>
                             @endforeach

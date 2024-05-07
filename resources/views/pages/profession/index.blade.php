@@ -33,21 +33,21 @@
                                 <td>{{ $profession->category }}</td>
                                 <td>{{ $profession->description }}</td>
                                 <td>
-                                <div class="flex gap-x-3 justify-center">
-                                    <a href="{{ route('profesi-digital.show', $profession->id) }}" class="button-primary px-5 py-2">
-                                        Detail
-                                    </a>
-                                    <a href="{{ route('profesi-digital.edit', $profession->id) }}" class="button-secondary px-5 py-2">
-                                        Edit
-                                    </a>
-                                    <form method="POST" action="{{ route('profesi-digital.destroy', $profession->id) }}">
-                                        @csrf
-                                        @method('delete')
-                                        <button type="submit" class="button-delete">
-                                        <i icon-name="trash-2"></i>
-                                        </button>
-                                    </form>
-                                </div>
+                                    <div class="flex gap-x-3 justify-center">
+                                        <a href="{{ route('profesi-digital.show', $profession->id) }}" class="button-primary px-5 py-2">
+                                            Detail
+                                        </a>
+                                        <a href="{{ route('profesi-digital.edit', $profession->id) }}" class="button-secondary px-5 py-2">
+                                            Edit
+                                        </a>
+                                        <form method="POST" action="{{ route('profesi-digital.destroy', $profession->id) }}">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="button-delete">
+                                            <i icon-name="trash-2"></i>
+                                            </button>
+                                        </form>
+                                    </div>
                                 </td>
                             </tr>
                             @endforeach

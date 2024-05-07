@@ -18,11 +18,12 @@ return new class extends Migration
             $table->id();
             $table->string('code', 100);
             $table->string('profession_name', 100);
-            $table->enum('category', ProfessionCategories::databaseEnum());
+            $table->enum('category', ProfessionCategories::toArray());
             $table->text('description');
             $table->text('responsibility');
             $table->text('skill');
             $table->json('learning_resources');
+            $table->text('caption');
             $table->timestamps();
         });
     }

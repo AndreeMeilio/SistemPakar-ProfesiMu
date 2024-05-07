@@ -18,7 +18,8 @@ class Profession extends Model
         'description', 
         'responsibility', 
         'skill', 
-        'learning_resources'
+        'learning_resources',
+        'caption'
     ];
 
     protected $casts = [

@@ -33,21 +33,21 @@
                                 <td>{{ $rule->personality->personality_name }}</td>
                                 <td>{{ $rule->characteristic->characteristic }}</td>
                                 <td>
-                                <div class="flex gap-x-3 justify-center">
-                                    <a href="{{ route('aturan-relasi.show', $rule->id) }}" class="button-primary px-5 py-2">
-                                        Detail
-                                    </a>
-                                    <a href="{{ route('aturan-relasi.edit', $rule->id) }}" class="button-secondary px-5 py-2">
-                                        Edit
-                                    </a>
-                                    <form method="POST" action="{{ route('aturan-relasi.destroy', $rule->id) }}">
-                                        @csrf
-                                        @method('delete')
-                                        <button type="submit" class="button-delete">
-                                        <i icon-name="trash-2"></i>
-                                        </button>
-                                    </form>
-                                </div>
+                                    <div class="flex gap-x-3 justify-center">
+                                        <a href="{{ route('aturan-relasi.show', $rule->id) }}" class="button-primary px-5 py-2">
+                                            Detail
+                                        </a>
+                                        <a href="{{ route('aturan-relasi.edit', $rule->id) }}" class="button-secondary px-5 py-2">
+                                            Edit
+                                        </a>
+                                        <form method="POST" action="{{ route('aturan-relasi.destroy', $rule->id) }}">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="button-delete">
+                                            <i icon-name="trash-2"></i>
+                                            </button>
+                                        </form>
+                                    </div>
                                 </td>
                             </tr>
                             @endforeach

@@ -25,18 +25,18 @@
                                 <td>{{ $participant->personality->personality_name ?? '-' }}</td>
                                 <td>{{ $participant->profession->profession_name ?? '-' }}</td>
                                 <td>
-                                <div class="flex gap-x-3 justify-center">
-                                    <a href="{{ route('riwayat-partisipan.show', $participant->id) }}" class="button-primary px-5 py-2">
-                                        Detail
-                                    </a>
-                                    <form method="POST" action="{{ route('riwayat-partisipan.destroy', $participant->id) }}">
-                                        @csrf
-                                        @method('delete')
-                                        <button type="submit" class="button-delete">
-                                        <i icon-name="trash-2"></i>
-                                        </button>
-                                    </form>
-                                </div>
+                                    <div class="flex gap-x-3 justify-center">
+                                        <a href="{{ route('riwayat-partisipan.show', $participant->id) }}" class="button-primary px-5 py-2">
+                                            Detail
+                                        </a>
+                                        <form method="POST" action="{{ route('riwayat-partisipan.destroy', $participant->id) }}">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="button-delete">
+                                            <i icon-name="trash-2"></i>
+                                            </button>
+                                        </form>
+                                    </div>
                                 </td>
                             </tr>
                             @endforeach
