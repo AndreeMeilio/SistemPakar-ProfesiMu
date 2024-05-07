@@ -11,7 +11,7 @@ $firstName = explode(' ',trim($fullName))[0];
         <i icon-name="menu"></i>
     </button>
     <div class="dropdown inline-block">
-        <button class="py-2 flex items-center gap-x-3 ">
+        <button class="py-2 flex items-center gap-x-3">
             <div class="flex flex-col text-left">
                 <p class="font-medium">{{ $firstName }}</p>
                 <p class="text-grey-primary text-sm">Admin</p>

@@ -2,8 +2,8 @@
 $statistic = array(
     array("title"=>"Total Profesi", "value"=>count($professions), "icon"=>"briefcase"),
     array("title"=>"Total Karakteristik", "value"=>count($characteristics), "icon"=>"clipboard-list"),
-    array("title"=>"Total Aturan", "value"=>0, "icon"=>"clipboard-check"),
-    array("title"=>"Total Partisipan", "value"=>0, "icon"=>"users"),
+    array("title"=>"Total Aturan", "value"=>count($rules), "icon"=>"clipboard-check"),
+    array("title"=>"Total Partisipan", "value"=>count($participants), "icon"=>"users"),
     array("title"=>"Total Admin", "value"=>count($users), "icon"=>"user"),
 );
 

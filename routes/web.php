@@ -29,7 +29,8 @@ Route::get('tes-minat-1', [HomeController::class, 'interestTest'])->name('intere
 
 Route::get('tes-kepribadian-2', [HomeController::class, 'personalityTest'])->name('personality_test');
 
-Route::get('hasil-tes', [HomeController::class, 'resultTest'])->name('result_test');
+Route::get('hasil-tes/{id}', [HomeController::class, 'resultTest'])->name('result_test');
+Route::post('hasil-tes/{id}', [HomeController::class, 'submitFeedback'])->name('submit_feedback');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');

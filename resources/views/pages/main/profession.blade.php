@@ -17,54 +17,25 @@
     </header>
 
     <section class="mt-12 px-24 pb-24 grid gap-12">
+        @foreach ($categories as $category)
         <div>
-            <h2 class="text-3xl font-bold text-navy-primary mb-6">Kategori Data</h2>
+            <h2 class="text-3xl font-bold text-navy-primary mb-6">Kategori {{ $category }}</h2>
             <div class="grid grid-cols-3 gap-8">
-                <div class="p-6 bg-white border-2 border-b-8 border-navy-primary rounded-3xl">
-                    <div class="flex justify-between">
-                        <h3 class="text-navy-primary text-xl font-semibold mb-2.5">Data Scientist</h3>
-                        <i icon-name="info" class="w-5 ml-1 text-navy-primary"></i>
-                    </div>
-                    <div class="h-1.5 w-[90px] bg-orange rounded-full mb-4"></div>
-                    <p class="text-black">Problem-Solving, Detail Oriented, Critical Thinking.</p>
-                </div>
-
-                <div class="p-6 bg-white border-2 border-b-8 border-navy-primary rounded-3xl">
-                    <h3 class="text-navy-primary text-xl font-semibold mb-2.5">Data Scientist</h3>
-                    <div class="h-1.5 w-[90px] bg-orange rounded-full mb-4"></div>
-                    <p class="text-black">Problem-Solving, Detail Oriented, Critical Thinking.</p>
-                </div>
-
-                <div class="p-6 bg-white border-2 border-b-8 border-navy-primary rounded-3xl">
-                    <h3 class="text-navy-primary text-xl font-semibold mb-2.5">Data Scientist</h3>
-                    <div class="h-1.5 w-[90px] bg-orange rounded-full mb-4"></div>
-                    <p class="text-black">Problem-Solving, Detail Oriented, Critical Thinking.</p>
-                </div>
+                @foreach ($professions as $profession)
+                    @if ($profession->category == $category)
+                        <div class="p-6 bg-white border-2 border-b-8 border-navy-primary rounded-3xl">
+                            <div class="flex justify-between">
+                                <h3 class="text-navy-primary text-xl font-semibold mb-2.5">{{ $profession->profession_name }}</h3>
+                                <i icon-name="info" class="w-5 ml-1 text-navy-primary"></i>
+                            </div>
+                            <div class="h-1.5 w-[90px] bg-orange rounded-full mb-4"></div>
+                            <p class="text-black">{{ $profession->caption }}</p>
+                        </div>
+                    @endif
+                @endforeach
             </div>
         </div>
-
-        <div>
-            <h2 class="text-3xl font-bold text-navy-primary mb-6">Kategori Digital Marketing</h2>
-            <div class="grid grid-cols-3 gap-8">
-                <div class="p-6 bg-white border-2 border-b-8 border-navy-primary rounded-3xl">
-                    <h3 class="text-navy-primary text-xl font-semibold mb-2.5">Data Scientist</h3>
-                    <div class="h-1.5 w-[90px] bg-orange rounded-full mb-4"></div>
-                    <p class="text-black">Problem-Solving, Detail Oriented, Critical Thinking.</p>
-                </div>
-
-                <div class="p-6 bg-white border-2 border-b-8 border-navy-primary rounded-3xl">
-                    <h3 class="text-navy-primary text-xl font-semibold mb-2.5">Data Scientist</h3>
-                    <div class="h-1.5 w-[90px] bg-orange rounded-full mb-4"></div>
-                    <p class="text-black">Problem-Solving, Detail Oriented, Critical Thinking.</p>
-                </div>
-
-                <div class="p-6 bg-white border-2 border-b-8 border-navy-primary rounded-3xl">
-                    <h3 class="text-navy-primary text-xl font-semibold mb-2.5">Data Scientist</h3>
-                    <div class="h-1.5 w-[90px] bg-orange rounded-full mb-4"></div>
-                    <p class="text-black">Problem-Solving, Detail Oriented, Critical Thinking.</p>
-                </div>
-            </div>
-        </div>
+        @endforeach
     </section>
 
     <footer>

@@ -1,7 +1,5 @@
 import "./bootstrap";
 
-import Alpine from "alpinejs";
-
 // Script for Collapse Sidebar
 var sidebarCollapseDefault = document.getElementById("sidebarCollapseDefault");
 if (sidebarCollapseDefault) {
@@ -53,56 +51,24 @@ function toggleModal(itemId, itemName) {
     modal.classList.toggle("pointer-events-none");
 }
 
-window.Alpine = Alpine;
+var btnRating = document.querySelectorAll(".btn-rating");
+btnRating.forEach((btn) => {
+    btn.addEventListener("click", setRatingValue);
+});
 
-Alpine.start();
+var ratingStars = document.querySelectorAll(".rating");
+function setRatingValue(event) {
+    var value = event.currentTarget.value;
 
-// Script for Pelamar Potensial
-document.addEventListener("DOMContentLoaded", () => {
-    // Searching for all class starting with "text-[" (job type inner text)
-    var jobTypes = document.querySelectorAll("[class^=text-\\[]");
-    jobTypes.forEach((jobType) => {
-        // Take value of 7 characters hex from class after splitting "text-[" for text color
-        var textColorHex = jobType.classList.value
-            .split("text-[")[1]
-            .slice(0, 7);
-        // Take value of 7 characters hex from class after splitting "bg-[" for bg color
-        var bgColorHex = jobType.parentNode.classList.value
-            .split("bg-[")[1]
-            .slice(0, 7);
-
-        jobType.style.color = textColorHex;
-        jobType.parentNode.style.backgroundColor = bgColorHex;
+    ratingStars.forEach((star, index) => {
+        if (index < value) {
+            star.classList.remove("text-gray-300");
+            star.classList.add("text-yellow-300");
+        } else {
+            star.classList.remove("text-yellow-400");
+            star.classList.add("text-gray-300");
+        }
     });
-});
 
-// Script for Tipe Pekerjaan
-document.addEventListener("DOMContentLoaded", () => {
-    var colorDots = document.getElementsByClassName("color-dot");
-    var colorHexes = document.getElementsByClassName("color-hex");
-
-    // Set Background Color for Dots
-    for (var i = 0; i < colorDots?.length; i++) {
-        colorDots[i].style.backgroundColor = colorHexes[i].innerHTML;
-    }
-});
-
-var tipePekerjaan = document.getElementById("tipe_pekerjaan");
-var bgColor = document.getElementById("bg_color");
-var textColor = document.getElementById("text_color");
-var bgPreview = document.getElementById("bg_preview");
-var textPreview = document.getElementById("text_preview");
-
-function previewJobType() {
-    textPreview.innerHTML =
-        tipePekerjaan.value != "" ? tipePekerjaan.value : "Tipe Pekerjaan";
-    textPreview.style.color = textColor.value;
-    bgPreview.style.backgroundColor = bgColor.value;
-}
-
-if (tipePekerjaan && bgColor && textColor) {
-    tipePekerjaan.addEventListener("input", previewJobType);
-    bgColor.addEventListener("input", previewJobType);
-    textColor.addEventListener("input", previewJobType);
-    previewJobType();
+    document.getElementById("ratingInput").value = value;
 }

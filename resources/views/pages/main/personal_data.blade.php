@@ -85,10 +85,10 @@
                         </div>
                     </div>
                     <div>
-                        <div class="flex">
-                            <label for="experience" class="block mb-2">Pengalaman Kerja atau Belajar Bidang Digital <span class="text-red">*</span></label>
+                        <div class="flex mb-2">
+                            <label for="experience" class="block mr-2">Pengalaman Kerja atau Belajar Bidang Digital <span class="text-red">*</span></label>
                             <a href="/" onclick="return false" data-modal-target="default-modal" data-modal-toggle="default-modal">
-                                <i icon-name="info" class="w-5 ml-2 text-orange cursor-pointer"></i>
+                                <i icon-name="info" class="w-5 text-orange cursor-pointer"></i>
                             </a>
                         </div>
                         <select id="experience" name="experience" class="input-field">

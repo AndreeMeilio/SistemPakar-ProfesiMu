@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use Flasher\Notyf\Prime\NotyfFactory;
 use Illuminate\Http\Request;
 use App\Models\Participant;
+use App\Models\Personality;
+use App\Models\Profession;
+use App\Enums\ProfessionCategories;
 use App\Enums\DigitalExperiences;
 
 class HomeController extends Controller
@@ -15,11 +18,21 @@ class HomeController extends Controller
     }
 
     public function profession() {
-        return view('pages.main.profession');
+        $categories = ProfessionCategories::toArray();
+        $professions = Profession::all();
+
+        $data = [
+            'categories' => $categories,
+            'professions' => $professions,
+        ];
+
+        return view('pages.main.profession', $data);
     }
 
     public function personality() {
-        return view('pages.main.personality');
+        $personalities = Personality::all();
+
+        return view('pages.main.personality', compact('personalities'));
     }
 
     public function personalData() {
@@ -36,7 +49,6 @@ class HomeController extends Controller
             'study_program' => 'required|string',
             'education' => 'required|string',
             'experience' => 'required|string',
-            'goal' => 'string',
         ];
 
         $customMessages = [
@@ -50,12 +62,12 @@ class HomeController extends Controller
             'study_program' => 'Program Studi',
             'education' => 'Pendidikan',
             'experience' => 'Pengalaman',
-            'goal' => 'Tujuan',
         ];
 
         $this->validate($request, $rules, $customMessages, $customAttributes);
 
         Participant::create($request->all());
+        $participantId = Participant::latest()->first();
 
         return to_route('introduction_test');
     }
@@ -72,7 +84,39 @@ class HomeController extends Controller
         return view('pages.main.personality_test');
     }
 
-    public function resultTest() {
-        return view('pages.main.result_test');
+    public function resultTest(Request $request) {
+        $participant = Participant::find($request->id);
+        
+        $feedbackDate = null;
+        $isFeedbackSubmitted = false;
+
+        if ($participant) {
+            $feedbackDate = date('d/m/Y', strtotime($participant->created_at));
+            $isFeedbackSubmitted = $participant->star_rating || $participant->feedback ? true : false;
+        } else {
+            return back();
+        }
+
+        $data = [
+            'participant' => $participant,
+            'feedbackDate' => $feedbackDate,
+            'isFeedbackSubmitted' => $isFeedbackSubmitted,
+        ];
+
+        return view('pages.main.result_test', $data);
+    }
+
+    public function submitFeedback(Request $request, NotyfFactory $flasher) {
+        if (!$request->star_rating && !$request->feedback) {
+            $flasher->addError('Mohon isi minimal salah satu kolom umpan balik');
+            return back();
+        }
+        
+        $participant = Participant::find($request->id);
+        $requestValue = $request->all();
+        $participant->update($requestValue);
+        $flasher->addSuccess('Umpan balik mu telah kami terima, terima kasih!');
+
+        return to_route('result_test', $request->id);
     }
 }

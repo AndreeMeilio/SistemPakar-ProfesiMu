@@ -18,60 +18,15 @@
 
     <section class="mt-12 px-24 pb-24">
         <div class="grid grid-cols-2 gap-8">
+            @foreach ($personalities as $personality)
             <div class="p-6 bg-white border-2 border-b-8 border-navy-primary rounded-3xl w-fit">
-                <h3 class="text-navy-primary text-xl font-semibold mb-2.5">Realistic</h3>
+                <h3 class="text-navy-primary text-xl font-semibold mb-2.5">{{ $personality->personality_name }}</h3>
                 <div class="h-1.5 w-[90px] bg-orange rounded-full mb-4"></div>
                 <p class="text-black">
-                    Karakteristik tipe Realistic adalah seseorang yang dijuluki sebagai Doers (Pelaku). 
-                    Suka bekerja dengan objek atau benda-benda. Terpaku dan memiliki fokus yang baik 
-                    dalam mengerjakan sesuatu yang disukai.
+                    {{ $personality->description }}
                 </p>
             </div>
-            <div class="p-6 bg-white border-2 border-b-8 border-navy-primary rounded-3xl w-fit">
-                <h3 class="text-navy-primary text-xl font-semibold mb-2.5">Investigative</h3>
-                <div class="h-1.5 w-[90px] bg-orange rounded-full mb-4"></div>
-                <p class="text-black">
-                    Karakteristik tipe Realistic adalah seseorang yang dijuluki sebagai Doers (Pelaku). 
-                    Suka bekerja dengan objek atau benda-benda. Terpaku dan memiliki fokus yang baik 
-                    dalam mengerjakan sesuatu yang disukai.
-                </p>
-            </div>
-            <div class="p-6 bg-white border-2 border-b-8 border-navy-primary rounded-3xl w-fit">
-                <h3 class="text-navy-primary text-xl font-semibold mb-2.5">Artistic</h3>
-                <div class="h-1.5 w-[90px] bg-orange rounded-full mb-4"></div>
-                <p class="text-black">
-                    Karakteristik tipe Realistic adalah seseorang yang dijuluki sebagai Doers (Pelaku). 
-                    Suka bekerja dengan objek atau benda-benda. Terpaku dan memiliki fokus yang baik 
-                    dalam mengerjakan sesuatu yang disukai.
-                </p>
-            </div>
-            <div class="p-6 bg-white border-2 border-b-8 border-navy-primary rounded-3xl w-fit">
-                <h3 class="text-navy-primary text-xl font-semibold mb-2.5">Social</h3>
-                <div class="h-1.5 w-[90px] bg-orange rounded-full mb-4"></div>
-                <p class="text-black">
-                    Karakteristik tipe Realistic adalah seseorang yang dijuluki sebagai Doers (Pelaku). 
-                    Suka bekerja dengan objek atau benda-benda. Terpaku dan memiliki fokus yang baik 
-                    dalam mengerjakan sesuatu yang disukai.
-                </p>
-            </div>
-            <div class="p-6 bg-white border-2 border-b-8 border-navy-primary rounded-3xl w-fit">
-                <h3 class="text-navy-primary text-xl font-semibold mb-2.5">Enterprising</h3>
-                <div class="h-1.5 w-[90px] bg-orange rounded-full mb-4"></div>
-                <p class="text-black">
-                    Karakteristik tipe Realistic adalah seseorang yang dijuluki sebagai Doers (Pelaku). 
-                    Suka bekerja dengan objek atau benda-benda. Terpaku dan memiliki fokus yang baik 
-                    dalam mengerjakan sesuatu yang disukai.
-                </p>
-            </div>
-            <div class="p-6 bg-white border-2 border-b-8 border-navy-primary rounded-3xl w-fit">
-                <h3 class="text-navy-primary text-xl font-semibold mb-2.5">Conventional</h3>
-                <div class="h-1.5 w-[90px] bg-orange rounded-full mb-4"></div>
-                <p class="text-black">
-                    Karakteristik tipe Realistic adalah seseorang yang dijuluki sebagai Doers (Pelaku). 
-                    Suka bekerja dengan objek atau benda-benda. Terpaku dan memiliki fokus yang baik 
-                    dalam mengerjakan sesuatu yang disukai.
-                </p>
-            </div>
+            @endforeach
         </div>
     </section>
 
