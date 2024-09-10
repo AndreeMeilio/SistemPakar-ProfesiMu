@@ -52,7 +52,7 @@
                     </ol>
 
                     <div class="flex justify-end mt-8">
-                        <a type="button" class="button-orange w-fit" href="{{ route('personality_test') }}">
+                        <a type="button" class="button-orange w-fit" href="{{ route('personality_test', $participantId) }}">
                             Lanjut
                             <i icon-name="chevron-right" class="w-5 ml-1"></i>
                         </a>

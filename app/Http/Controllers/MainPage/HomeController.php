@@ -69,23 +69,29 @@ class HomeController extends Controller
         Participant::create($request->all());
         $participantId = Participant::latest()->first();
 
-        return to_route('introduction_test');
+        return to_route('introduction_test', $participantId);
     }
 
-    public function introductionTest() {
-        return view('pages.main.introduction');
+    public function introductionTest($id) {
+        $participantId = Participant::find($id);
+
+        return view('pages.main.introduction', compact('participantId'));
     }
 
-    public function interestTest() {
-        return view('pages.main.interest_test');
+    public function interestTest($id) {
+        $participantId = Participant::find($id);
+
+        return view('pages.main.interest_test', compact('participantId'));
     }
 
-    public function personalityTest() {
-        return view('pages.main.personality_test');
+    public function personalityTest($id) {
+        $participantId = Participant::find($id);
+
+        return view('pages.main.personality_test', compact('participantId'));
     }
 
-    public function resultTest(Request $request) {
-        $participant = Participant::find($request->id);
+    public function resultTest($id) {
+        $participant = Participant::find($id);
         
         $feedbackDate = null;
         $isFeedbackSubmitted = false;

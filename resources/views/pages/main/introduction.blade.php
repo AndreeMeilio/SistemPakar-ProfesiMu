@@ -68,7 +68,7 @@
                 <p class="my-10">Selamat mengerjakan <b>Tes Kepribadian Profesi Digital Mu!</b></p>
 
                 <div class="flex justify-center">
-                    <a class="button-orange w-fit" href="{{ route('interest_test') }}">
+                    <a class="button-orange w-fit" href="{{ route('interest_test', $participantId) }}">
                         Mulai Tes
                         <i icon-name="chevron-right" class="w-5 ml-1"></i>
                     </a>

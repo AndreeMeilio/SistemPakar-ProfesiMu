@@ -120,8 +120,8 @@
             <div class="flex items-center gap-6">
                 <img src="{{ asset('assets/images/pakar-2.svg') }}" alt="Pakar IT" class="border-2 border-navy-primary p-1 rounded-full" />
                 <div>
-                    <p class="text-xl mb-1 text-black font-bold">Rizky Putri</p>
-                    <p class="text-lg text-navy-primary mb-1">Psikolog Talenta Indonesia</p>
+                    <p class="text-xl mb-1 text-black font-bold">[Nama Psikolog]</p>
+                    <p class="text-lg text-navy-primary mb-1">Psikolog [Nama Company]</p>
                     <p class="text-grey-primary">Pakar Bidang Psikologi</p>
                 </div>
             </div>

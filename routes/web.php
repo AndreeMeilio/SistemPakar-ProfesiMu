@@ -23,11 +23,11 @@ Route::get('daftar-riasec', [HomeController::class, 'personality'])->name('perso
 Route::get('data-diri', [HomeController::class, 'personalData'])->name('personal_data');
 Route::post('data-diri', [HomeController::class, 'submitPersonalData'])->name('submit_data');
 
-Route::get('pengenalan-tes', [HomeController::class, 'introductionTest'])->name('introduction_test');
+Route::get('pengenalan-tes/{id}', [HomeController::class, 'introductionTest'])->name('introduction_test');
 
-Route::get('tes-minat-1', [HomeController::class, 'interestTest'])->name('interest_test');
+Route::get('tes-minat-1/{id}', [HomeController::class, 'interestTest'])->name('interest_test');
 
-Route::get('tes-kepribadian-2', [HomeController::class, 'personalityTest'])->name('personality_test');
+Route::get('tes-kepribadian-2/{id}', [HomeController::class, 'personalityTest'])->name('personality_test');
 
 Route::get('hasil-tes/{id}', [HomeController::class, 'resultTest'])->name('result_test');
 Route::post('hasil-tes/{id}', [HomeController::class, 'submitFeedback'])->name('submit_feedback');
